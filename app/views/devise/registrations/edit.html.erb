@@ -2,6 +2,15 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   
+  <p>
+    <b>Image:</b>
+    <% if current_user.profile_picture.url %>
+    <%= image_tag current_user.profile_picture.url %>
+    <% else %>
+    <img src="http://www.fillmurray.com/300/300">
+    <% end %>
+  </p>
+  
   <%= devise_error_messages! %>
   <div class="field">
     <%= f.label :first_name %><br />
@@ -22,6 +31,11 @@
     <%= f.label :bio %><br />
     <%= f.text_area :bio %>
   </div>
+
+  <div class="field">
+     <%= f.label :profile_picture %><br />
+     <%= f.file_field :profile_picture %>
+   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
