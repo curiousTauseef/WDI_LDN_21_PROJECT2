@@ -5,7 +5,7 @@
   <p>
     <b>Image:</b>
     <% if current_user.profile_picture.url %>
-    <%= image_tag current_user.profile_picture.url %>
+    <%= image_tag current_user.profile_picture.detail.url %>
     <% else %>
     <img src="http://www.fillmurray.com/300/300">
     <% end %>
