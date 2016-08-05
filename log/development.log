@@ -1028,3 +1028,1084 @@ Processing by Devise::RegistrationsController#edit as HTML
 Completed 200 OK in 486ms (Views: 482.5ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/users/edit" for ::1 at 2016-08-05 17:31:34 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (79.7ms)
+Completed 200 OK in 347ms (Views: 301.8ms | ActiveRecord: 7.0ms)
+
+
+Started PUT "/users" for ::1 at 2016-08-05 17:31:51 +0100
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FSoMyQmAg45ELI8s0hF2lVUiFTWphlnMXH0LnsvR2WhYkGhamgrnNbtbkp/PjBF1ZP3pT8yWlLITirIlqcP3UQ==", "user"=>{"first_name"=>"Jason", "last_name"=>"Lai", "email"=>"jase_lai@hotmail.com", "bio"=>"I am here", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007ffe79972578 @tempfile=#<Tempfile:/var/folders/0p/vwk6f2xj4bxc05j17n2btcg40000gn/T/RackMultipart20160805-12618-1a7on0t.jpeg>, @original_filename="Kat.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Kat.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 210ms (ActiveRecord: 1.4ms)
+
+
+  
+NoMethodError (undefined method `profile_picture_will_change!' for #<User:0x007ffe79912df8>
+Did you mean?  profile_pic_will_change!):
+  
+activemodel (5.0.0) lib/active_model/attribute_methods.rb:433:in `method_missing'
+carrierwave (0.10.0) lib/carrierwave/orm/activerecord.rb:38:in `profile_picture='
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:46:in `public_send'
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:46:in `_assign_attribute'
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:40:in `block in _assign_attributes'
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:39:in `each'
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:39:in `_assign_attributes'
+activerecord (5.0.0) lib/active_record/attribute_assignment.rb:26:in `_assign_attributes'
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:33:in `assign_attributes'
+activerecord (5.0.0) lib/active_record/persistence.rb:265:in `block in update'
+activerecord (5.0.0) lib/active_record/transactions.rb:395:in `block in with_transaction_returning_status'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `block in transaction'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/transaction.rb:189:in `within_new_transaction'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `transaction'
+activerecord (5.0.0) lib/active_record/transactions.rb:211:in `transaction'
+activerecord (5.0.0) lib/active_record/transactions.rb:392:in `with_transaction_returning_status'
+activerecord (5.0.0) lib/active_record/persistence.rb:264:in `update'
+devise (4.2.0) lib/devise/models/database_authenticatable.rb:69:in `update_with_password'
+devise (4.2.0) app/controllers/devise/registrations_controller.rb:94:in `update_resource'
+devise (4.2.0) app/controllers/devise/registrations_controller.rb:48:in `update'
+actionpack (5.0.0) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.0.0) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.0ms)
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (93.4ms)
+Started GET "/" for ::1 at 2016-08-05 17:35:16 +0100
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 103ms (Views: 96.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/edit" for ::1 at 2016-08-05 17:35:18 +0100
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 77ms (Views: 69.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/edit" for ::1 at 2016-08-05 17:35:28 +0100
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 41ms (Views: 35.8ms | ActiveRecord: 2.1ms)
+
+
+Started PUT "/users" for ::1 at 2016-08-05 17:35:40 +0100
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SZ/ev3fDjtVcl9nYo9SsSlUOcuDEFqzlNbGvDDxgP4NFNP1PcL0h+vxBg9T3W4yLqYN91VSd6X9TNNnm8B7cLA==", "user"=>{"first_name"=>"Jason", "last_name"=>"Lai", "email"=>"jase_lai@hotmail.com", "bio"=>"", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007ffe79c7ab80 @tempfile=#<Tempfile:/var/folders/0p/vwk6f2xj4bxc05j17n2btcg40000gn/T/RackMultipart20160805-12618-1prre25.jpg>, @original_filename="breakfastbanner.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"breakfastbanner.jpg\"\r\nContent-Type: image/jpeg\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 166ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `profile_picture_will_change!' for #<User:0x007ffe743479c8>
+Did you mean?  profile_pic_will_change!):
+  
+activemodel (5.0.0) lib/active_model/attribute_methods.rb:433:in `method_missing'
+carrierwave (0.10.0) lib/carrierwave/orm/activerecord.rb:38:in `profile_picture='
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:46:in `public_send'
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:46:in `_assign_attribute'
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:40:in `block in _assign_attributes'
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:39:in `each'
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:39:in `_assign_attributes'
+activerecord (5.0.0) lib/active_record/attribute_assignment.rb:26:in `_assign_attributes'
+activemodel (5.0.0) lib/active_model/attribute_assignment.rb:33:in `assign_attributes'
+activerecord (5.0.0) lib/active_record/persistence.rb:265:in `block in update'
+activerecord (5.0.0) lib/active_record/transactions.rb:395:in `block in with_transaction_returning_status'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `block in transaction'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/transaction.rb:189:in `within_new_transaction'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `transaction'
+activerecord (5.0.0) lib/active_record/transactions.rb:211:in `transaction'
+activerecord (5.0.0) lib/active_record/transactions.rb:392:in `with_transaction_returning_status'
+activerecord (5.0.0) lib/active_record/persistence.rb:264:in `update'
+devise (4.2.0) lib/devise/models/database_authenticatable.rb:69:in `update_with_password'
+devise (4.2.0) app/controllers/devise/registrations_controller.rb:94:in `update_resource'
+devise (4.2.0) app/controllers/devise/registrations_controller.rb:48:in `update'
+actionpack (5.0.0) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.0.0) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (89.7ms)
+Started GET "/" for ::1 at 2016-08-05 17:35:49 +0100
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-08-05 17:35:51 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"DYpi686lsrG6lwk+v1izo/ZtokIFC7e+dA3RtFgdEXZAMAZ4XS/WCkXgFI2ixdRDx7JeOGAbesA7+mgPOg8/Tw=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.9ms)
+
+
+  
+NoMethodError (undefined method `profile_picture_changed?' for #<User:0x007ffe743be078>
+Did you mean?  profile_picture_cache
+               profile_picture_cache=
+               profile_pic_changed?
+               profile_picture?
+               profile_pic_previously_changed?
+               profile_picture
+               profile_pic_previous_change
+               profile_pic_change):
+  
+activemodel (5.0.0) lib/active_model/attribute_methods.rb:433:in `method_missing'
+carrierwave (0.10.0) lib/carrierwave/mount.rb:233:in `store_previous_model_for_profile_picture'
+activesupport (5.0.0) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.0) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+activesupport (5.0.0) lib/active_support/callbacks.rb:770:in `block (2 levels) in deprecated_false_terminator'
+activesupport (5.0.0) lib/active_support/callbacks.rb:769:in `catch'
+activesupport (5.0.0) lib/active_support/callbacks.rb:769:in `block in deprecated_false_terminator'
+activesupport (5.0.0) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.0) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.0) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_update_callbacks'
+activerecord (5.0.0) lib/active_record/callbacks.rb:306:in `_update_record'
+activerecord (5.0.0) lib/active_record/timestamp.rb:81:in `_update_record'
+activerecord (5.0.0) lib/active_record/persistence.rb:534:in `create_or_update'
+activerecord (5.0.0) lib/active_record/callbacks.rb:298:in `block in create_or_update'
+activesupport (5.0.0) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_save_callbacks'
+activerecord (5.0.0) lib/active_record/callbacks.rb:298:in `create_or_update'
+activerecord (5.0.0) lib/active_record/persistence.rb:125:in `save'
+activerecord (5.0.0) lib/active_record/validations.rb:44:in `save'
+activerecord (5.0.0) lib/active_record/attribute_methods/dirty.rb:22:in `save'
+activerecord (5.0.0) lib/active_record/transactions.rb:319:in `block (2 levels) in save'
+activerecord (5.0.0) lib/active_record/transactions.rb:395:in `block in with_transaction_returning_status'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `block in transaction'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/transaction.rb:189:in `within_new_transaction'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `transaction'
+activerecord (5.0.0) lib/active_record/transactions.rb:211:in `transaction'
+activerecord (5.0.0) lib/active_record/transactions.rb:392:in `with_transaction_returning_status'
+activerecord (5.0.0) lib/active_record/transactions.rb:319:in `block in save'
+activerecord (5.0.0) lib/active_record/transactions.rb:334:in `rollback_active_record_state!'
+activerecord (5.0.0) lib/active_record/transactions.rb:318:in `save'
+activerecord (5.0.0) lib/active_record/suppressor.rb:41:in `save'
+devise (4.2.0) lib/devise/models/rememberable.rb:60:in `forget_me!'
+devise (4.2.0) lib/devise/controllers/rememberable.rb:30:in `forget_me'
+devise (4.2.0) lib/devise/hooks/forgetable.rb:7:in `block in <top (required)>'
+warden (1.2.6) lib/warden/hooks.rb:14:in `block in _run_callbacks'
+warden (1.2.6) lib/warden/hooks.rb:9:in `each'
+warden (1.2.6) lib/warden/hooks.rb:9:in `_run_callbacks'
+warden (1.2.6) lib/warden/manager.rb:51:in `_run_callbacks'
+warden (1.2.6) lib/warden/proxy.rb:262:in `block in logout'
+warden (1.2.6) lib/warden/proxy.rb:260:in `each'
+warden (1.2.6) lib/warden/proxy.rb:260:in `logout'
+devise (4.2.0) lib/devise/controllers/sign_in_out.rb:90:in `sign_out_all_scopes'
+devise (4.2.0) lib/devise/controllers/sign_in_out.rb:73:in `sign_out'
+devise (4.2.0) app/controllers/devise/sessions_controller.rb:26:in `destroy'
+actionpack (5.0.0) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.0.0) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (137.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "loveunderground_development"[0m
+  [1m[35m (131.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "loveunderground_test"[0m
+  [1m[35m (310.5ms)[0m  [1m[35mCREATE DATABASE "loveunderground_development" ENCODING = 'unicode'[0m
+  [1m[35m (249.4ms)[0m  [1m[35mCREATE DATABASE "loveunderground_test" ENCODING = 'unicode'[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3183810296231075805);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20160805125547)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "bio" text, "username" character varying, "profile_pic" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160805125547"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeviseToUsers (20160805140910)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.5ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (10.3ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" timestamp[0m
+  [1m[35m (9.0ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" timestamp[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" timestamp[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" inet[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" inet[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160805140910"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-08-05 16:36:51 UTC], ["updated_at", 2016-08-05 16:36:51 UTC]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3183810296231075805)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/" for ::1 at 2016-08-05 17:37:00 +0100
+Started GET "/" for ::1 at 2016-08-05 17:37:00 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticsController#home as HTML
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (6.1ms)
+  Rendered statics/home.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 530ms (Views: 498.1ms | ActiveRecord: 9.4ms)
+
+
+Completed 200 OK in 524ms (Views: 489.0ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2016-08-05 17:37:02 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (89.3ms)
+Completed 200 OK in 149ms (Views: 123.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-08-05 17:37:30 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k9suQs+OZ7E/sNzM8KkEyiHjScR3PZLLZoyiwxitiAnd/supYeDrBjZn2+7cqVwkf2jJ7IIfx84WZug0tKFn7g==", "user"=>{"first_name"=>"bob", "last_name"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: first_name, last_name
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", 2016-08-05 16:37:30 UTC], ["updated_at", 2016-08-05 16:37:30 UTC], ["email", "bob@bob.com"], ["encrypted_password", "$2a$11$BCL3IUFd.kAr2QW/1W5tk.WA0UNlz9OEaY9kgtk4mi88h83KIxLne"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 250ms (ActiveRecord: 6.0ms)
+
+
+  
+NoMethodError (undefined method `profile_picture_changed?' for #<User:0x007f9beb281980>
+Did you mean?  profile_picture_cache
+               profile_picture_cache=
+               profile_pic_changed?
+               profile_picture?
+               profile_pic_previously_changed?
+               profile_picture
+               profile_pic_previous_change
+               profile_pic_change):
+  
+activemodel (5.0.0) lib/active_model/attribute_methods.rb:433:in `method_missing'
+carrierwave (0.10.0) lib/carrierwave/mount.rb:233:in `store_previous_model_for_profile_picture'
+activesupport (5.0.0) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.0) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+activesupport (5.0.0) lib/active_support/callbacks.rb:770:in `block (2 levels) in deprecated_false_terminator'
+activesupport (5.0.0) lib/active_support/callbacks.rb:769:in `catch'
+activesupport (5.0.0) lib/active_support/callbacks.rb:769:in `block in deprecated_false_terminator'
+activesupport (5.0.0) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.0) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.0) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_update_callbacks'
+activerecord (5.0.0) lib/active_record/callbacks.rb:306:in `_update_record'
+activerecord (5.0.0) lib/active_record/timestamp.rb:81:in `_update_record'
+activerecord (5.0.0) lib/active_record/persistence.rb:534:in `create_or_update'
+activerecord (5.0.0) lib/active_record/callbacks.rb:298:in `block in create_or_update'
+activesupport (5.0.0) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_save_callbacks'
+activerecord (5.0.0) lib/active_record/callbacks.rb:298:in `create_or_update'
+activerecord (5.0.0) lib/active_record/persistence.rb:125:in `save'
+activerecord (5.0.0) lib/active_record/validations.rb:44:in `save'
+activerecord (5.0.0) lib/active_record/attribute_methods/dirty.rb:22:in `save'
+activerecord (5.0.0) lib/active_record/transactions.rb:319:in `block (2 levels) in save'
+activerecord (5.0.0) lib/active_record/transactions.rb:395:in `block in with_transaction_returning_status'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `block in transaction'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/transaction.rb:189:in `within_new_transaction'
+activerecord (5.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `transaction'
+activerecord (5.0.0) lib/active_record/transactions.rb:211:in `transaction'
+activerecord (5.0.0) lib/active_record/transactions.rb:392:in `with_transaction_returning_status'
+activerecord (5.0.0) lib/active_record/transactions.rb:319:in `block in save'
+activerecord (5.0.0) lib/active_record/transactions.rb:334:in `rollback_active_record_state!'
+activerecord (5.0.0) lib/active_record/transactions.rb:318:in `save'
+activerecord (5.0.0) lib/active_record/suppressor.rb:41:in `save'
+devise (4.2.0) lib/devise/models/trackable.rb:33:in `update_tracked_fields!'
+devise (4.2.0) lib/devise/hooks/trackable.rb:7:in `block in <top (required)>'
+warden (1.2.6) lib/warden/hooks.rb:14:in `block in _run_callbacks'
+warden (1.2.6) lib/warden/hooks.rb:9:in `each'
+warden (1.2.6) lib/warden/hooks.rb:9:in `_run_callbacks'
+warden (1.2.6) lib/warden/manager.rb:51:in `_run_callbacks'
+warden (1.2.6) lib/warden/proxy.rb:179:in `set_user'
+devise (4.2.0) lib/devise/controllers/sign_in_out.rb:45:in `sign_in'
+devise (4.2.0) app/controllers/devise/registrations_controller.rb:106:in `sign_up'
+devise (4.2.0) app/controllers/devise/registrations_controller.rb:22:in `create'
+actionpack (5.0.0) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.0.0) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (24.0ms)
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (100.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3183810296231075805);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Users (20160805164101)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mALTER TABLE "users" ALTER COLUMN "profile_picture" TYPE character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3183810296231075805)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3183810296231075805);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Users (20160805164101)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "profile_pic" TO "profile_picture"[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160805164101"]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3183810296231075805)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/" for ::1 at 2016-08-05 17:44:59 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 470ms (Views: 446.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2016-08-05 17:45:01 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (84.8ms)
+Completed 200 OK in 157ms (Views: 123.9ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/users" for ::1 at 2016-08-05 17:45:10 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y/2+QOL/we3H2FbXP9s1paMpK1MoWeD0jbYPlx0a7cAt2FurTJFNWs4PUfUT221L/aKre917tfH9XEVgsRYCJw==", "user"=>{"first_name"=>"bob", "last_name"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: first_name, last_name
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 287ms (Views: 49.1ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/users" for ::1 at 2016-08-05 17:45:21 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HV1RTuRWlYCRAh9uoEzoigKvwb2MYucevfpIGKFJICFQ5zXdd9zxO251At290Y9qM3A9x+lyKmDyDfGjw1sOGA==", "user"=>{"first_name"=>"bill", "last_name"=>"bill", "email"=>"bill@bill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Unpermitted parameters: first_name, last_name
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bill@bill.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", 2016-08-05 16:45:21 UTC], ["updated_at", 2016-08-05 16:45:21 UTC], ["email", "bill@bill.com"], ["encrypted_password", "$2a$11$jSQdtLXQdp2.YUgKhkAcnu5OZbGt23E02H/A11Y/0Dmm7c/zjTwsy"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4, "current_sign_in_ip" = $5, "last_sign_in_ip" = $6 WHERE "users"."id" = $7[0m  [["updated_at", 2016-08-05 16:45:21 UTC], ["sign_in_count", 1], ["current_sign_in_at", 2016-08-05 16:45:21 UTC], ["last_sign_in_at", 2016-08-05 16:45:21 UTC], ["current_sign_in_ip", "::1/128"], ["last_sign_in_ip", "::1/128"], ["id", 2]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/about
+Completed 302 Found in 165ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/about" for ::1 at 2016-08-05 17:45:21 +0100
+Processing by StaticsController#about as HTML
+  Rendering statics/about.html.erb within layouts/application
+  Rendered statics/about.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 38ms (Views: 33.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2016-08-05 17:45:26 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/about
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/users/2" for ::1 at 2016-08-05 17:45:27 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 40.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for ::1 at 2016-08-05 17:45:30 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered collection of /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb [18 times] (7.2ms)
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.9ms)
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (133.2ms)
+Started GET "/user" for ::1 at 2016-08-05 17:45:31 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb [18 times] (4.8ms)
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendering /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/JLMacAir/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (93.7ms)
+Started GET "/users/sign_up" for ::1 at 2016-08-05 17:45:33 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/about
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/about" for ::1 at 2016-08-05 17:45:33 +0100
+Processing by StaticsController#about as HTML
+  Rendering statics/about.html.erb within layouts/application
+  Rendered statics/about.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/edit" for ::1 at 2016-08-05 17:45:40 +0100
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 51ms (Views: 46.0ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-08-05 17:46:02 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"d8nxDQzRx/VpH2fccyZ/0VhCOeYOn0hgyZOcF8zXOvg6c5Wen1ujTpZoem9uuxgxaZ3FnGuPhR6GZCWsrsUUwQ=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2016-08-05 17:46:02 +0100
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2016-08-05 17:46:03 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 45ms (Views: 43.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-08-05 17:46:36 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 59ms (Views: 55.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-08-05 17:46:41 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ed25yfwaYwureEvHFzVHhJKlg5uNEbvsCMldiRhlR0YaJ6Om4/Ch7SPoyOeH6OA+ur+yPKsPDrxTKkXdTHcFug==", "user"=>{"email"=>"bill@bill.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "bill@bill.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", 2016-08-05 16:46:41 UTC], ["sign_in_count", 2], ["updated_at", 2016-08-05 16:46:41 UTC], ["id", 2]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/about
+Completed 302 Found in 166ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/about" for ::1 at 2016-08-05 17:46:41 +0100
+Processing by StaticsController#about as HTML
+  Rendering statics/about.html.erb within layouts/application
+  Rendered statics/about.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/edit" for ::1 at 2016-08-05 17:46:42 +0100
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 48ms (Views: 42.0ms | ActiveRecord: 3.1ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (130.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "loveunderground_development"[0m
+  [1m[35m (131.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "loveunderground_test"[0m
+  [1m[35m (333.3ms)[0m  [1m[35mCREATE DATABASE "loveunderground_development" ENCODING = 'unicode'[0m
+  [1m[35m (242.2ms)[0m  [1m[35mCREATE DATABASE "loveunderground_test" ENCODING = 'unicode'[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3183810296231075805);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20160805125547)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "bio" text, "username" character varying, "profile_pic" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160805125547"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDeviseToUsers (20160805140910)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.2ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (9.7ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" timestamp[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" timestamp[0m
+  [1m[35m (11.1ms)[0m  [1m[35mALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_at" timestamp[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_at" timestamp[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "current_sign_in_ip" inet[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "last_sign_in_ip" inet[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160805140910"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to Users (20160805164101)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "profile_pic" TO "profile_picture"[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160805164101"]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-08-05 16:48:34 UTC], ["updated_at", 2016-08-05 16:48:34 UTC]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3183810296231075805)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/" for ::1 at 2016-08-05 17:48:42 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 604ms (Views: 554.1ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2016-08-05 17:48:44 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (88.9ms)
+Completed 200 OK in 144ms (Views: 124.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-08-05 17:48:51 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWLiotkESyYTRRHd31GGXVtg9b3Pgsbz+sCsbV1G2zHClu50CReOvPzVnaWfxJHbxWKEC+RCnqU1qYRqtWEcvA==", "user"=>{"first_name"=>"bob", "last_name"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+  [1m[35mSQL (5.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "email", "encrypted_password") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "bob"], ["last_name", "bob"], ["created_at", 2016-08-05 16:48:51 UTC], ["updated_at", 2016-08-05 16:48:51 UTC], ["email", "bob@bob.com"], ["encrypted_password", "$2a$11$3mBoKKT95vQ802kihXS0P.6rZVg32Ya3J391SiI2GsaIZZn9L87ee"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4, "current_sign_in_ip" = $5, "last_sign_in_ip" = $6 WHERE "users"."id" = $7[0m  [["updated_at", 2016-08-05 16:48:51 UTC], ["sign_in_count", 1], ["current_sign_in_at", 2016-08-05 16:48:51 UTC], ["last_sign_in_at", 2016-08-05 16:48:51 UTC], ["current_sign_in_ip", "::1/128"], ["last_sign_in_ip", "::1/128"], ["id", 1]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/about
+Completed 302 Found in 281ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/about" for ::1 at 2016-08-05 17:48:51 +0100
+Processing by StaticsController#about as HTML
+  Rendering statics/about.html.erb within layouts/application
+  Rendered statics/about.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 35.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/edit" for ::1 at 2016-08-05 17:48:52 +0100
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 75ms (Views: 67.5ms | ActiveRecord: 1.7ms)
+
+
+Started PUT "/users" for ::1 at 2016-08-05 17:49:06 +0100
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ab6hR9kGWmriCqy5H1PKNQhNrx6ic/xRV3Fcj/2Q9cCOW24glM1Rlj7lZiRPOhQ1dd+EVZc0usrCmnsoIOFK/A==", "user"=>{"first_name"=>"bob", "last_name"=>"bob", "email"=>"bob@bob.com", "bio"=>"", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007fb5721e9978 @tempfile=#<Tempfile:/var/folders/0p/vwk6f2xj4bxc05j17n2btcg40000gn/T/RackMultipart20160805-13545-1ixocbp.jpg>, @original_filename="breakfastbanner.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"breakfastbanner.jpg\"\r\nContent-Type: image/jpeg\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "profile_picture" = $1, "bio" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["profile_picture", "breakfastbanner.jpg"], ["bio", ""], ["updated_at", 2016-08-05 16:49:06 UTC], ["id", 1]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 185ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/" for ::1 at 2016-08-05 17:49:06 +0100
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 79.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/edit" for ::1 at 2016-08-05 17:49:12 +0100
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 58ms (Views: 53.0ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/users" for ::1 at 2016-08-05 17:49:38 +0100
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5lhyofVPktLWCY3QyvVtfMY4wMak6u5CrPRJOG62kpBpvb3GuISZLgrmR02anLN8u6rrjZGtqNk5H26fs8ctrA==", "user"=>{"first_name"=>"bob", "last_name"=>"bob", "email"=>"bob@bob.com", "bio"=>"", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007fb572353430 @tempfile=#<Tempfile:/var/folders/0p/vwk6f2xj4bxc05j17n2btcg40000gn/T/RackMultipart20160805-13545-fspzun.jpeg>, @original_filename="Kat.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Kat.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "profile_picture" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["profile_picture", "Kat.jpeg"], ["updated_at", 2016-08-05 16:49:39 UTC], ["id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 166ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/" for ::1 at 2016-08-05 17:49:39 +0100
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/edit" for ::1 at 2016-08-05 17:49:41 +0100
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 38ms (Views: 34.3ms | ActiveRecord: 1.0ms)
+
+
