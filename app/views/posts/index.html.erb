@@ -19,7 +19,12 @@
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= post.date_time %></td>
-        <td><%= post.user %></td>
+        <td>
+          <% if post.user.profile_picture.thumb.url %>
+            <%= link_to (image_tag post.user.profile_picture.thumb.url), "/users/#{post.user_id}" %></td>
+          <% else %>
+            <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{post.user_id}" %>
+          <% end %>          
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

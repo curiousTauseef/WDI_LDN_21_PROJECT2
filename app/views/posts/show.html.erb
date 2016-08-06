@@ -17,7 +17,11 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user %>
+<% if @post.user.profile_picture.thumb.url %>
+  <%= link_to (image_tag @post.user.profile_picture.thumb.url), "/users/#{@post.user_id}" %>
+<% else %>
+  <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{@post.user_id}" %>
+<% end %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

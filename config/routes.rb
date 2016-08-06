@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   get 'about', to: 'statics#about'
 
-  get 'users/:id', to: 'users#show'
+  get 'users/:id', to: 'users#show', as: "user"
 
 end
