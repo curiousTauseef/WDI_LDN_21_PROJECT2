@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rmagick'
 gem 'carrierwave', '0.10.0'
 gem 'devise'
