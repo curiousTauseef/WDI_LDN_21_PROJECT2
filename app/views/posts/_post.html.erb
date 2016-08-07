@@ -1,0 +1,19 @@
+  <div class="media col-sm-6 col-md-4">
+    <div class="media-left">
+        <% if post.user.profile_picture.thumb.url %>
+          <%= link_to (image_tag post.user.profile_picture.thumb.url), "/users/#{post.user_id}" %></td>
+        <% else %>
+          <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{post.user_id}" %>
+        <% end %>   
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= post.title%></h4>
+      <p><%= post.date_time %></p>
+      <p><%= post.body%></p>
+
+      <%= link_to 'Show', post, class: "btn btn-primary" %></td>
+      <%= link_to 'Edit', edit_post_path(post), class: "btn btn-default"  %></td>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+
+    </div>
+  </div>

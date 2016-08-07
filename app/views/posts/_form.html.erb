@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+  <div class="form-group">
+    <%= f.label :Description %>
+    <%= f.text_area :body, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :date_time %>
-    <%= f.datetime_select :date_time %>
+    <%= f.datetime_select :date_time, class: "form-control" %>
   </div>
 
   <!-- <div class="field"> -->
