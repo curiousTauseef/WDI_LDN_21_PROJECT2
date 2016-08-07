@@ -7,13 +7,12 @@
         <% end %>   
     </div>
     <div class="media-body">
-      <h4 class="media-heading"><%= post.title%></h4>
-      <p><%= post.date_time %></p>
+      <h4 class="media-heading"><%= link_to post.title, "/posts/#{post.id}"%></h4>
+      <p><%= post.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
       <p><%= post.body%></p>
 
-      <%= link_to 'Show', post, class: "btn btn-primary" %></td>
-      <%= link_to 'Edit', edit_post_path(post), class: "btn btn-default"  %></td>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-
+      <%#= link_to 'Show', post, class: "btn btn-primary" %>
+      <%#= link_to 'Edit', edit_post_path(post), class: "btn btn-default"  %>
+      <%#= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
     </div>
   </div>

@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Stations</h1>
 
-<% if current_user.admin? %>
+<% if user_signed_in? && current_user.admin? %>
   <table>
     <thead>
       <tr>
@@ -33,17 +31,30 @@
     <% @stations.each do |station| %>
       <%if station.posts.length >= 1 %>
         <div class="col-md-4">
-          <div class="thumbnail">
+          <div class="panel">
             <div class="caption">
               <h2>
-                <a href="/stations/<%= station.id %>">
-                  <%= station.name %>   
-                </a>
+                  <%= link_to station.name, "/stations/#{station.id}" %>   
               </h2>
               <% station.posts.each do |p| %>
-                <p>
-                  <a href="/posts/<%= p.id %>"><%= p.date_time.strftime("%m/%d/%Y") %> - <%= p.title %></a>
-                </p>
+
+              <div class="media">
+                <div class="media-left">
+                    <% if p.user.profile_picture.thumb.url %>
+                      <%= link_to (image_tag p.user.profile_picture.thumb.url), "/users/#{p.user_id}" %></td>
+                    <% else %>
+                      <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{p.user_id}" %>
+                    <% end %>   
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading"><%= link_to p.title, "/posts/#{p.id}" %></h4>
+                  <p><%= p.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
+
+                </div>
+              </div>
+
+
+
               <% end %> 
             </div>
           </div>

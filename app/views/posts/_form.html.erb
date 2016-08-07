@@ -26,10 +26,21 @@
     <%= f.datetime_select :date_time, class: "form-control" %>
   </div>
 
-  <!-- <div class="field"> -->
-    <%#= f.label :user_id %>
-    <%#= f.text_field :user_id %>
-  <!-- </div> -->
+  <p>Select the station(s) where you connected:</p>
+
+  <% @lines.each do |line| %>
+    <div class="col-md-6">
+    <h4><%= line.name %></h4>
+      <% line.stations.each do |s| %>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="post[station_ids][]" value="<%= s.id %>">
+            <%= s.name %> 
+          </label>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

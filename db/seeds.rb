@@ -22,6 +22,7 @@ user1 = User.create(
   username: "kittykat",
   first_name: "Kathryn",
   last_name: "Barnes",
+  admin: true,
   email: "katbarnes@something.com",
   password: "password",
   password_confirmation: "password",
@@ -45,9 +46,59 @@ user3 = User.create(
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/3/Kat1.jpeg')))
 
+user4 = User.create(
+  username: "raneG",
+  first_name: "Rane",
+  last_name: "Gowan",
+  bio:"Hi, I'm Rane. I'm a TA at General Assembly.",
+  email: "rane.gowan@generalassemb.ly",
+  password: "password",
+  password_confirmation: "password",
+  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/4/rane.jpg')))
+
+user5 = User.create(
+  username: "chansec",
+  first_name: "Chanse",
+  last_name: "Campbell",
+  bio: "Hi, I'm Chanse. I'm a TA at General Assembly.",
+  email: "chanse.campbell@generalassemb.ly",
+  password: "password",
+  password_confirmation: "password",
+  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/5/chanse.png')))
+
+user6 = User.create(
+  username: "mickyginger",
+  first_name: "Mike",
+  last_name: "Hayden",
+  bio: "Hi, I'm Mike. I'm an instructor at General Assembly.",
+  email: "mike.hayden@generalassemb.ly",
+  password: "password",
+  password_confirmation: "password",
+  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/6/mike.jpg')))
+
+user7 = User.create(
+  username: "lulu69",
+  first_name: "Lua",
+  last_name: "Cooper",
+  bio: "Hi, I'm Lua.",
+  email: "lua.cooper@something.com",
+  password: "password",
+  password_confirmation: "password",
+  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/7/lua.jpeg')))
+
+user8 = User.create(
+  username: "UncleTris",
+  first_name: "Tris",
+  last_name: "Revill",
+  bio: "Hi, I'm Tris.",
+  email: "tris.revill@something.com",
+  password: "password",
+  password_confirmation: "password",
+  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/8/tris.jpg')))
+
 post1 = Post.create(
-  title: "Greek guy who helped me out of bank tube",     
-  body: "I am Kitty - the girl who looked very lost at Bank tube on my way to a first date. I was wearing a blue shirt dress and cream heels. I was just back from living in Nigeria. You were on your way out in Bank then Shoreditch wearing office attire. You walked me out and I really wanted to ask for your number but my date was there - awkward!!!! Hope you’re out there and single!!!",
+  title: "Greek guy who helped me out of Bank tube",     
+  body: "I am Kat - the girl who looked very lost at Bank tube on my way to a first date. I was wearing a blue shirt dress and cream heels. I was just back from living in Nigeria. You were on your way out in Bank then Shoreditch wearing office attire. You walked me out and I really wanted to ask for your number but my date was there - awkward!!!! Hope you’re out there and single!!!",
   date_time: "2016-07-16 19:15",
   user_id: 1)
 
@@ -55,7 +106,7 @@ post2 = Post.create(
   title: "Central Line Holborn Saturday",     
   body: "We were on a central line train around 4:30pm on Saturday July 23rd. You (tall, good looking, wearing a hat and headphones) moved from where you were standing next to me by the door just before the Holborn stop where you got off. In the odd chance you see this and want to meet up, let's grab a drink.",
   date_time: "2016-07-23 16:30",
-  user_id: 1)
+  user_id: 5)
 
 post3 = Post.create(
   title: "Violin guy on train",     
@@ -70,16 +121,34 @@ post4 = Post.create(
   user_id: 2)
 
 post5 = Post.create(
-  title: "Ginger guy on the Nothern line to Oxford Circus",     
+  title: "Ginger guy on the Northern line to Oxford Circus",     
   body: "Hi, tall, ginger guy sitting on the northbound Northern line. You were wearing shorts and a greenish long sleeved blouse. I got on at Camden Town, stood next to you and accidentally step on your foot. we both got off at Oxford Circus around 9.30 am on Thursday, 07/07 but I immediately lost track of you. I promise I won’t step on your feet when we’ll go dancing! The brunette, long haired girl wearing glasses, a striped skirt and ballerina flat shoes.",
   date_time: "2016-07-07 09:30",
-  user_id: 3)
+  user_id: 7)
 
 post6 = Post.create(
   title: "We met in the Central Line London Tube Underground",     
   body: "I met a boy with black, curly and short hair, blue eyes and tall in the Central Line Underground towards Newbury Park, in London on Friday night at about 22:30 on 10/6/2016. He was wearing dark blue T-shirt, jeans and metal watch. He also has a skull tattoo on his right arm (bicep). We smiled and looked at each other a few times. Then I got off the tube at Stratford and we waved Goodbye. I would like to see you again.",
   date_time: "2016-06-10 22:30",
   user_id: 2)
+
+post7 = Post.create(
+  title: "'Catwoman' on the District Line, Mon. 1/8",     
+  body: "You: beautiful, curvaceous girl with brown, curly hair and fair skin, wearing cat ear headphones (or cat ears and headphones?), and a black bodysuit/leggings. Maybe coming from a workout? Me: slim, seated nearby, wearing a business suit, heading to work, just my regular ears, with eyes possibly popping out of my head. I hoped you too would be on the train until Aldgate station so I could talk to you, but alas, you got off before. Of course, headphones present a challenge, and this being the London area, you're almost definitely in an exclusive, long-term, all-consuming relationship...Anyway, even if the sight of someone like you were not rare for this neighborhood - and even rarer for the bus - you still would have made my day. Thanks for that. Meow! (Sorry.)",
+  date_time: "2016-08-01 08:30",
+  user_id: 4)
+
+post8 = Post.create(
+  title: "Train to Heathrow Airport",     
+  body: "We ended up sitting together at the front of the train, talked a bit, and otherwise had a pleasant ride together. It's a shame I had to get off so soon when you were going all the way to Heathrow, I really wanted to ask you out for drinks. You're older than me, but I really don't mind, especially with your gorgeous smile. Hopefully I hear from you.",
+  date_time: "2016-07-31 16:30",
+  user_id: 6)
+
+post9 = Post.create(
+  title: "Blonde guy with flesh tunnels x ",     
+  body: "I get in the Overground at 17:47 in Liverpool Street station. I was sitting in front of you. I was wearing a blue cap turned backwards and a black jumper. You was just amazing sitting there and watching me eating my crisps. I felt uncomfortable so I moved to another chair. I got off the train at Tottenham Court Road. I waited until the last moment to talk to you. So, young blonde man, you better answer this time, cause I really want to know who made me blush for the first time after 3 years! Blew my chance on 02/08/2016 @ 17:47",
+  date_time: "2016-08-02 17:47",
+  user_id: 8)
 
 acton_town = Station.create(name:"Acton Town")
 aldgate = Station.create(name:"Aldgate")
@@ -355,6 +424,9 @@ post3.stations = [oxford_circus, liverpool_street]
 post4.stations = [elephant_castle]
 post5.stations = [camden_town, oxford_circus]
 post6.stations = [oxford_circus]
+post7.stations = [aldgate]
+post8.stations = [covent_garden]
+post9.stations = [liverpool_street, tottenham_court_road]
 
 bakerloo_line = Line.create(name: "Bakerloo Line")
 central_line = Line.create(name: "Central Line")
