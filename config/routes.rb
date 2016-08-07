@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :lines
   resources :stations
   resources :posts
   devise_for :users
