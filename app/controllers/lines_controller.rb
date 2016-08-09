@@ -1,4 +1,7 @@
 class LinesController < ApplicationController
+  include AdminAuthenticationHelper
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :is_admin?, except: [:index, :show]
   before_action :set_line, only: [:show, :edit, :update, :destroy]
 
   # GET /lines
@@ -54,6 +57,7 @@ class LinesController < ApplicationController
   # DELETE /lines/1
   # DELETE /lines/1.json
   def destroy
+    is_admin? 
     @line.destroy
     respond_to do |format|
       format.html { redirect_to lines_url, notice: 'Line was successfully destroyed.' }

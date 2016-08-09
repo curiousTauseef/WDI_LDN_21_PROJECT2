@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  include AdminAuthenticationHelper
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :is_creator?, except: [:index, :show, :new]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -20,6 +23,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @lines = Line.all
   end
 
   # POST /posts

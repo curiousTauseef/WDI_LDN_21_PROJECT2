@@ -1,28 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="media-left">
+    <% if @post.user.profile_picture.thumb.url %>
+      <%= link_to (image_tag @post.user.profile_picture.thumb.url), "/users/#{@post.user_id}" %>
+    <% else %>
+      <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{@post.user_id}" %>
+    <% end %>   
+</div>
+<div class="media-body">
+  <h2 class="media-heading"><%= link_to @post.title, "/posts/#{@post.id}"%></h2>
+  <p><%= @post.user.first_name %> <%= @post.user.last_name %> @<%= @post.user.username %></p>
+  <p><%= @post.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
+  <p><%= @post.body%></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<p>
-  <strong>Date time:</strong>
-  <%= @post.date_time %>
-</p>
-
-<p>
-  <strong>User:</strong>
-<% if @post.user.profile_picture.thumb.url %>
-  <%= link_to (image_tag @post.user.profile_picture.thumb.url), "/users/#{@post.user_id}" %>
-<% else %>
-  <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{@post.user_id}" %>
-<% end %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <% if user_signed_in? && (current_user == @post.user || current_user.admin?) %>
+    <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary"  %>
+    <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+  <% end %>
+</div>

@@ -112,7 +112,7 @@ post3 = Post.create(
   title: "Violin guy on train",     
   body: "We exchanged glances at Liverpool Street station before getting on the 10.42pm train on Sunday to Oxford Circus. You then say down in the seats adjacent. Was going to strike up a conversation when we sat down but then the lady nearby asked you about your instrument. Doh. I was wearing blue trousers and a cardigan and listening to radio through my phone. I felt a connection with you - would love to meet properly for a drink or coffee!",
   date_time: "2016-07-31 10:42",
-  user_id: 1)
+  user_id: 3)
 
 post4 = Post.create(
   title: "Handsome chap with dark hair",     
@@ -134,7 +134,7 @@ post6 = Post.create(
 
 post7 = Post.create(
   title: "'Catwoman' on the District Line, Mon. 1/8",     
-  body: "You: beautiful, curvaceous girl with brown, curly hair and fair skin, wearing cat ear headphones (or cat ears and headphones?), and a black bodysuit/leggings. Maybe coming from a workout? Me: slim, seated nearby, wearing a business suit, heading to work, just my regular ears, with eyes possibly popping out of my head. I hoped you too would be on the train until Aldgate station so I could talk to you, but alas, you got off before. Of course, headphones present a challenge, and this being the London area, you're almost definitely in an exclusive, long-term, all-consuming relationship...Anyway, even if the sight of someone like you were not rare for this neighborhood - and even rarer for the bus - you still would have made my day. Thanks for that. Meow! (Sorry.)",
+  body: "You: beautiful, curvaceous girl with brown, curly hair and fair skin, wearing cat ear headphones (or cat ears and headphones?), and a black bodysuit/leggings. Maybe coming from a workout? Me: slim, seated nearby, wearing a business suit, heading to work, just my regular ears, with eyes possibly popping out of my head. I hoped you too would be on the train until Aldgate station so I could talk to you, but alas, you got off before. Of course, headphones present a challenge, and this being the London area, you're almost definitely in an exclusive, long-term, all-consuming relationship...Anyway, even if the sight of someone like you were not rare for this neighborhood - and even rarer for the tube - you still would have made my day. Thanks for that. Meow! (Sorry.)",
   date_time: "2016-08-01 08:30",
   user_id: 4)
 

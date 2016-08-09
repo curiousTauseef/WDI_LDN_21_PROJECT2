@@ -1,0 +1,18 @@
+<div class="media">
+  <div class="media-left">
+
+    
+      <% if message.user.profile_picture.thumb.url %>
+        <%= link_to (image_tag message.user.profile_picture.thumb.url), "/users/#{message.user_id}" %>
+      <% else %>
+        <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{message.user_id}" %>
+      <% end %>   
+  
+  </div>
+
+    <div class="media-body">
+      <h4 class="media-heading"><%= message.body %></h4>
+      <p><%= message.time %></p>
+    </div>  
+
+</div>

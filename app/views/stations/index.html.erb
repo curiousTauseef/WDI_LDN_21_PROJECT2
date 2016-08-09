@@ -1,66 +1,8 @@
 <h1>Stations</h1>
 
-<% if user_signed_in? && current_user.admin? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @stations.each do |station| %>
-        <tr>
-          <td><%= station.name %></td>
-          <td><%= link_to 'Show', station %></td>
-          <td><%= link_to 'Edit', edit_station_path(station) %></td>
-          <td><%= link_to 'Destroy', station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-<br>
-
-<%= link_to 'New Station', new_station_path %>
-
-<% else %>
 
   <div class="row">
-    <% @stations.each do |station| %>
-      <%if station.posts.length >= 1 %>
-        <div class="col-md-4">
-          <div class="panel">
-            <div class="caption">
-              <h2>
-                  <%= link_to station.name, "/stations/#{station.id}" %>   
-              </h2>
-              <% station.posts.each do |p| %>
-
-              <div class="media">
-                <div class="media-left">
-                    <% if p.user.profile_picture.thumb.url %>
-                      <%= link_to (image_tag p.user.profile_picture.thumb.url), "/users/#{p.user_id}" %></td>
-                    <% else %>
-                      <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{p.user_id}" %>
-                    <% end %>   
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading"><%= link_to p.title, "/posts/#{p.id}" %></h4>
-                  <p><%= p.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
-
-                </div>
-              </div>
-
-
-
-              <% end %> 
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+    <%= render @stations %>
   </div >
 
-  <% end %>
+

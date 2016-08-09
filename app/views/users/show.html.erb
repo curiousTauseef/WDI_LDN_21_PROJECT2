@@ -1,11 +1,13 @@
-<% if @user.profile_picture.thumb.url %>
-  <%= link_to (image_tag @user.profile_picture.detail.url), "/users/#{@user_id}" %></td>
-<% else %>
-  <%= link_to (image_tag "http://www.fillmurray.com/400/400"), "/users/#{@user_id}" %>
-<% end %>   
+<div class="text-center">
+  <% if @user.profile_picture.thumb.url %>
+    <%= link_to (image_tag @user.profile_picture.detail.url), "/users/#{@user_id}", class: "profileDetail" %>
+  <% else %>
+    <%= link_to (image_tag "http://www.fillmurray.com/400/400"), "/users/#{@user_id}", class: "profileDetail" %>
+  <% end %>   
 
-<h2><%=@user.first_name%> <%=@user.last_name%></h2>
-
-<p><%=@user.bio%> </p>
+  <h2><%=@user.first_name%> <%=@user.last_name%></h2>
+  <h4>@<%=@user.username%></h4>
+  <p><%=@user.bio%></p>
+</div>
 
 

@@ -8,6 +8,7 @@
     </div>
     <div class="media-body">
       <h4 class="media-heading"><%= link_to post.title, "/posts/#{post.id}"%></h4>
+      <p><%= post.user.first_name%> <%= post.user.last_name%> @<%= post.user.username%></p>
       <p><%= post.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
       <p><%= post.body%></p>
 

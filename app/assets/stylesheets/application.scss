@@ -21,7 +21,7 @@
 
  /*POSTS INDEX*/
 
-div.media-left img {
+div.media-left img, div.media-right img  {
   border-radius: 100%;
 }
 
@@ -32,6 +32,14 @@ div.media-left img {
 /*STATIONS INDEX*/
 .panel {
     height: 300px;
+    overflow:auto;
 }
+
+/*USERS SHOW*/
+
+.profileDetail img {
+  border-radius: 100%;
+}
+/* background: linear-gradient(to bottom,rgba(255,255,255,0) 0,#fff 55%,#fff 90%,rgba(255,255,255,0) 100%); */
 
 

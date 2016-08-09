@@ -1,4 +1,7 @@
 class StationsController < ApplicationController
+  include AdminAuthenticationHelper
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :is_admin?, except: [:index, :show]
   before_action :set_station, only: [:show, :edit, :update, :destroy]
 
   # GET /stations

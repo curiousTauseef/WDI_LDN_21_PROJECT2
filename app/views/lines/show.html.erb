@@ -1,9 +1,31 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @line.name %>
-</p>
+<h2><%= link_to @line.name, "/lines/#{@line.id}" %></h2>
 
-<%= link_to 'Edit', edit_line_path(@line) %> |
-<%= link_to 'Back', lines_path %>
+<% @line.posts.each do |p| %>
+
+  <div class="media">
+    <div class="media-left">
+
+      
+        <% if p.user.profile_picture.thumb.url %>
+          <%= link_to (image_tag p.user.profile_picture.thumb.url), "/users/#{p.user_id}" %>
+        <% else %>
+          <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{p.user_id}" %>
+        <% end %>   
+    
+    </div>
+
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to p.title, "/posts/#{p.id}" %></h4>
+        <p><%= p.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
+      </div>
+
+ 
+  </div>
+
+<% end %>
+
+<% if user_signed_in? && current_user.admin? %>
+  <br>
+  <%= link_to 'Edit', edit_line_path(@line), class:"btn btn-primary" %> 
+<% end %>
