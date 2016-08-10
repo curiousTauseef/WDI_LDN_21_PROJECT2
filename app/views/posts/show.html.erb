@@ -5,6 +5,7 @@
       <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{@post.user_id}" %>
     <% end %>   
 </div>
+
 <div class="media-body">
   <h2 class="media-heading"><%= link_to @post.title, "/posts/#{@post.id}"%></h2>
   <p><%= @post.user.first_name %> <%= @post.user.last_name %> @<%= @post.user.username %></p>
@@ -13,6 +14,13 @@
 
   <% if user_signed_in? && (current_user == @post.user || current_user.admin?) %>
     <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary"  %>
-    <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+    <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+  <% end %>
+
+  <% if user_signed_in? && current_user != @post.user  %>
+    <%= link_to 'Connect', conversations_path(sender_id: current_user.id, receiver_id: @post.user_id), method: :post, class: "btn btn-primary" %>
+
+  <% elsif user_signed_in? == false %>
+    <%= link_to "Sign in to connect", user_session_path, class: "btn btn-primary" %>
   <% end %>
 </div>

@@ -1,20 +1,66 @@
 <h1>Inbox</h1>
+<div class="row">
+  <div class="panel panel-default col-md-8">
+    <div class="panel-body">
 
-<ul>
-  <% @conversations.each do |conversation| %>
-  <% receiver = conversation.sender_id == current_user.id ? conversation.receiver : conversation.sender %>
+        <% @conversations.each do |conversation| %>
 
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <% if conversation.recipient(current_user).profile_picture.thumb.url %>
+                  <%= link_to (image_tag conversation.recipient(current_user).profile_picture.thumb.url), "/users/#{conversation.recipient(current_user).id}" %>
+                <% else %>
+                  <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{conversation.recipient(current_user).id}" %>
+                <% end %>   
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+                <%= link_to conversation.recipient(current_user).username, conversation_messages_path(conversation) %>
+                <% if conversation.unread_message_count(current_user) != 0%><span class="badge"><%= conversation.unread_message_count(current_user) %></span>
+                <% end %>
+              </h4>
 
-  <% unread_message_count = conversation.messages.where("user_id != ? AND read = ?", current_user.id, false).count %>
+              <p><%= conversation.messages.last.body if conversation.messages.last.present? %></p>
+            </div>
+          </div>
 
+        
+        <% end %>
 
-  <li><%= link_to receiver.username, conversation_messages_path(conversation) %> <%= unread_message_count %></li>
-  <% end %>
-</ul>
+    </div>
+  </div>
 
-<h2>Users</h2>
-<ul>
-  <% @users.each do |user| %>
-  <li><%= link_to user.username, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post%></li>
-  <% end %>
-</ul>
+  <div class="panel panel-default col-md-3 col-md-offset-1">
+    <div class="panel-body">
+
+      <h2>Users</h2>
+
+      <div class="form-group has-feedback">
+          <input type="text" class="form-control" placeholder="Search" id="search">
+          <i class="glyphicon glyphicon-search form-control-feedback"></i>
+      </div>
+
+      
+        <% @users.sort_by{ |u| u.first_name.downcase }.each do |user| %>
+
+          <div class="media users" data-searchstring="<%= user.username %> <%= user.first_name %> <%= user.last_name %>">
+            <div class="media-left">
+              <% if user.profile_picture.thumb.url %>
+                <%= link_to (image_tag user.profile_picture.thumb.url), "/users/#{user.id}" %>
+              <% else %>
+                <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{user.id}" %>
+              <% end %>   
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><%= link_to user.first_name+" "+user.last_name, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post%></h4>
+              <p><%= link_to "@"+user.username, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post%></p>
+
+            </div>
+          </div>
+
+        <% end %>
+    </div>
+  </div>
+</div>

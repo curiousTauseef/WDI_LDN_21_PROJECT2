@@ -18,10 +18,12 @@ class StationsController < ApplicationController
   # GET /stations/new
   def new
     @station = Station.new
+    @lines = Line.all
   end
 
   # GET /stations/1/edit
   def edit
+    @lines = Line.all
   end
 
   # POST /stations
@@ -72,6 +74,6 @@ class StationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def station_params
-      params.require(:station).permit(:name)
+      params.require(:station).permit(:name, line_ids: [])
     end
 end

@@ -1,19 +1,25 @@
   <div class="media col-sm-6 col-md-4">
-    <div class="media-left">
-        <% if post.user.profile_picture.thumb.url %>
-          <%= link_to (image_tag post.user.profile_picture.thumb.url), "/users/#{post.user_id}" %></td>
-        <% else %>
-          <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{post.user_id}" %>
-        <% end %>   
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading"><%= link_to post.title, "/posts/#{post.id}"%></h4>
-      <p><%= post.user.first_name%> <%= post.user.last_name%> @<%= post.user.username%></p>
-      <p><%= post.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
-      <p><%= post.body%></p>
+    <div class="panel panel-default post">
+      <div class= "panel-body">
+        <div class="media-left">
 
-      <%#= link_to 'Show', post, class: "btn btn-primary" %>
-      <%#= link_to 'Edit', edit_post_path(post), class: "btn btn-default"  %>
-      <%#= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-    </div>
+          <% profile_pic_url = post.user.profile_picture.thumb.url.present? ? post.user.profile_picture.thumb.url : "http://www.fillmurray.com/50/50" %>
+
+          <%= link_to (image_tag profile_pic_url), "/users/#{post.user_id}" %>
+
+        </div>
+        
+        <div class="media-body">
+          <h4 class="media-heading"><%= link_to post.title, "/posts/#{post.id}"%></h4>
+          <p><%= post.user.first_name%> <%= post.user.last_name%> @<%= post.user.username%></p>
+          <p><%= post.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
+          <p><%= post.body%></p>
+
+          <%#= link_to 'Show', post, class: "btn btn-primary" %>
+          <%#= link_to 'Edit', edit_post_path(post), class: "btn btn-default"  %>
+          <%#= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+    
+        </div>
+      </div>
+    </div>    
   </div>

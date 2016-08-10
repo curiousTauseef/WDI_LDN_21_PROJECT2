@@ -1,23 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-
+@import "select2";
 
  /*POSTS INDEX*/
 
@@ -29,17 +12,36 @@ div.media-left img, div.media-right img  {
       margin-top: 15px;
 }
 
-/*STATIONS INDEX*/
-.panel {
-    height: 300px;
-    overflow:auto;
+.post {
+  height: 300px;
+  overflow: hidden;
 }
+
+.panel:after {
+  content: " ";
+  height: 20px;
+  background-color: red !important;
+}
+
+/*STATIONS INDEX*/
+// .panel {
+//     height: 300px;
+//     overflow:auto;
+// }
 
 /*USERS SHOW*/
 
-.profileDetail img {
+.profileDetail {
   border-radius: 100%;
 }
+
+/*MESSAGES INDEX*/
+
+.viewMessages {
+  overflow: auto;
+  max-height: 55vh;
+}
+
 /* background: linear-gradient(to bottom,rgba(255,255,255,0) 0,#fff 55%,#fff 90%,rgba(255,255,255,0) 100%); */
 
 

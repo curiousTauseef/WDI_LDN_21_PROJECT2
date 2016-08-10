@@ -1,14 +1,14 @@
 <% display = (user_signed_in? && current_user.admin?) ? 0 : 1 %>
 
 <% if line.posts.size >= display %>
-  <div class="col-md-4">
-    <div class="panel">
-      <div class="caption">
+  <div class="col-sm-6 col-md-4">
+    <div class="panel panel-default post">
+      <div class= "panel-body">
         <h2>
           <%= link_to line.name, "/lines/#{line.id}" %>   
         </h2>
 
-        <% line.posts.each do |p| %>
+        <% line.posts.take(3).each do |p| %>
 
           <div class="media">
             <div class="media-left">
@@ -29,9 +29,9 @@
 
           
           </div>
-
         <% end %>
       </div>
+        <a href="#" class="btn btn-primary">View All</a> 
     </div>
   </div>
 <% end %>

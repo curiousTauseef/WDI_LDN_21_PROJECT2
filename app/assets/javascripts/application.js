@@ -14,4 +14,34 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
+//= require select2
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+
+  console.log("js loaded")
+
+  $(".viewMessages").animate({ scrollTop: $(document).height() }, 0);
+
+  $('.select2').select2();
+
+  var $users = $('.users');
+
+  $('#search').on('keyup', function() {
+    var input = this;
+
+    $users.each(function() {
+      var searchString = $ (input).val().toLowerCase();
+      var textToMatch = $(this).data("searchstring").toLowerCase();
+
+      if(textToMatch.match(searchString)) {
+        $(this).show();
+      }
+
+      else {
+        $(this).hide();
+      }
+
+    })
+  });
+});

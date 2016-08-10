@@ -1,8 +1,13 @@
 <h1>Stations</h1>
 
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to 'New Station', new_station_path, class: "btn btn-primary" %>
+<% end %>
 
-  <div class="row">
-    <%= render @stations %>
-  </div >
+<p>&nbsp;</p>
+
+<div class="row">
+  <%= render @stations %>
+</div >
 
 

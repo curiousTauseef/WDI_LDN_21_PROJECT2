@@ -10,25 +10,13 @@
 
   <body>
     <header>
-      <ul>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Posts", posts_path %></li>
-        <% if current_user %>
-          <li><%= link_to 'New Post', new_post_path %></li>
-          <li><%= link_to "Profile", edit_user_registration_path %></li> 
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-        <% else %> 
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-          <li><%= link_to "Register", new_user_registration_path %></li>
-
-        <% end %> 
-      </ul>
+      <%= render "partials/header" %>
     </header>
 
-  <%= render "partials/header" %>
+
     <main class="container">
       <% flash.each do |name, message| %>
-        <% name = 'info' if name == 'notice' %>
+        <% name = 'success' if name == 'notice' %>
         <% name = 'danger' if name == 'alert' %>
         <div class="alert alert-<%= name %>" role="alert">
           <%= message %>

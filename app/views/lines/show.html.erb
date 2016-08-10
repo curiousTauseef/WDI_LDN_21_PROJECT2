@@ -28,4 +28,5 @@
 <% if user_signed_in? && current_user.admin? %>
   <br>
   <%= link_to 'Edit', edit_line_path(@line), class:"btn btn-primary" %> 
+  <%= link_to 'Destroy', @line, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
 <% end %>
