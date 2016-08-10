@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Love Underground</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  </head>
+
+  <body class="homepage">
+    <div class="shader"></div>
+    <div class="centered">
+      <h1 class="love animated slideInLeft">Love</h1>
+      <h1 class="underground animated slideInLeft">Underground</h1>
+      <div>
+        <%=link_to "LOGIN", new_user_session_path%>
+      </div>
+    </div>
+  </body>
+</html>

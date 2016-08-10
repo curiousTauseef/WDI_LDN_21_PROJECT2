@@ -3,5 +3,6 @@ class StaticsController < ApplicationController
   end
 
   def home
+    render layout: "home"
   end
 end

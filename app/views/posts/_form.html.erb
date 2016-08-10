@@ -26,14 +26,12 @@
     <%= f.datetime_select :date_time, class: "form-control" %>
   </div>
 
-  <p>Select the station(s) where you connected:</p>
-
   <div class="form-group">
-    <%= f.label :station_ids %>
+    <%= f.label :stations_where_you_connected %>
     <%= f.grouped_collection_select :station_ids, @lines, :stations, :name, :id, :name, {}, { class: "form-control select2", multiple: true } %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

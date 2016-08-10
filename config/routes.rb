@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
   root 'statics#home'
-
+  
   get 'about', to: 'statics#about'
 
   get 'users/:id', to: 'users#show', as: "user"

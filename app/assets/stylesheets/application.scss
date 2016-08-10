@@ -1,11 +1,77 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "select2";
+@import "animate.css";
+
+
+/*STATICS HOME*/
+
+*{
+  font-family: 'Lato', sans-serif;
+}
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.shader {
+  width: 100%;
+  height: 100vh;
+  
+  position: absolute;
+  background: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  // background-color: rgba(25,25,25,0.25)
+  z-index: 1;
+}
+
+.homepage {
+  background-image: url("london-underground.jpg");
+  background-repeat: none;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  position: relative;
+  margin:0 auto;
+  text-align: center;
+  width:100%;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // background: red;
+
+  .centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    max-width: 100%;
+  }
+
+  .love {
+    color: #F8C213;
+    font-weight: 900;
+    font-size: 61px;
+    animation-duration: 3s;
+    display: inline-block;
+  }
+
+  .underground {
+    color: #FBFBFF;
+    font-weight: 100;
+    font-size: 61px;
+    animation-duration: 3s;
+    display:inline-block;
+  }
+
+}
 
  /*POSTS INDEX*/
 
 div.media-left img, div.media-right img  {
   border-radius: 100%;
+  border: 5px solid #F8C213;
 }
 
 .media:first-child {
@@ -39,8 +105,32 @@ div.media-left img, div.media-right img  {
 
 .viewMessages {
   overflow: auto;
-  max-height: 55vh;
+  height: 55vh;
+  position: relative;
 }
+
+.message {
+  // position: absolute;
+  // width: 200px;
+  // height: 100px;
+}
+
+.send {
+  float: right;
+}
+
+/*FORMS*/
+textarea {
+  max-width: 100%
+}
+
+/*CONVERSATIONS INDEX*/
+.users-pane, .inbox-pane {
+  height: 85vh;
+  overflow: auto;
+}
+
+
 
 /* background: linear-gradient(to bottom,rgba(255,255,255,0) 0,#fff 55%,#fff 90%,rgba(255,255,255,0) 100%); */
 

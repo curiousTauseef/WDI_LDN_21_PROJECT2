@@ -20,19 +20,21 @@ Line.destroy_all
 
 user1 = User.create(
   username: "kittykat",
-  first_name: "Kathryn",
-  last_name: "Barnes",
+  first_name: "Katherine",
+  last_name: "Barlow",
   admin: true,
-  email: "katbarnes@something.com",
+  bio: "Single and ready to mingle. Music trailblazer. Foodaholic. General web aficionado. Proud alcohol lover.",
+  email: "kitty.barlow@something.com",
   password: "password",
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/1/Kat.jpeg')))
 
 user2 = User.create(
-  username: "cjames",
-  first_name: "Cody",
-  last_name: "Wyant",
-  email: "cjwyant@something.com",
+  username: "cdawg",
+  first_name: "Conrad",
+  last_name: "Watson",
+  email: "conrad.watson@something.com",
+  bio: "I'm looking for a rich husband. Social media enthusiast. Prone to fits of apathy. Tv practitioner. Professional zombie ninja.",
   password: "password",
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/2/cody.jpg')))
@@ -42,6 +44,7 @@ user3 = User.create(
   first_name: "Olive",
   last_name: "Snook",
   email: "olivesnook@something.com",
+  bio: "Professional food junkie. Social media practitioner. Hipster-friendly web scholar. Infuriatingly humble pop culture aficionado.",
   password: "password",
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/3/Kat1.jpeg')))
@@ -50,7 +53,7 @@ user4 = User.create(
   username: "raneG",
   first_name: "Rane",
   last_name: "Gowan",
-  bio:"Hi, I'm Rane. I'm a TA at General Assembly.",
+  bio: "Internet maven. Zombie practitioner. Pop culture lover. Amateur introvert. Music geek. Extreme bacon guru.",
   email: "rane.gowan@generalassemb.ly",
   password: "password",
   password_confirmation: "password",
@@ -60,7 +63,7 @@ user5 = User.create(
   username: "chansec",
   first_name: "Chanse",
   last_name: "Campbell",
-  bio: "Hi, I'm Chanse. I'm a TA at General Assembly.",
+  bio: "Reader. Award-winning organizer. Passionate entrepreneur. Hipster-friendly analyst.",
   email: "chanse.campbell@generalassemb.ly",
   password: "password",
   password_confirmation: "password",
@@ -70,7 +73,7 @@ user6 = User.create(
   username: "mickyginger",
   first_name: "Mike",
   last_name: "Hayden",
-  bio: "Hi, I'm Mike. I'm an instructor at General Assembly.",
+  bio: "Tv nerd. Web aficionado. Alcohol guru. Incurable food practitioner. Evil social media fanatic. Twitter scholar. Coffee buff. Communicator.",
   email: "mike.hayden@generalassemb.ly",
   password: "password",
   password_confirmation: "password",
@@ -78,19 +81,19 @@ user6 = User.create(
 
 user7 = User.create(
   username: "lulu69",
-  first_name: "Lua",
-  last_name: "Cooper",
-  bio: "Hi, I'm Lua.",
+  first_name: "Leanne",
+  last_name: "Carter",
+  bio: "Love cake. Falls down a lot. Wannabe writer. Coffee fan. Future teen idol. General travel ninja.",
   email: "lua.cooper@something.com",
   password: "password",
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/7/lua.jpeg')))
 
 user8 = User.create(
-  username: "UncleTris",
-  first_name: "Tris",
-  last_name: "Revill",
-  bio: "Hi, I'm Tris.",
+  username: "UncleChris",
+  first_name: "Chris",
+  last_name: "Rademacher",
+  bio: "Passionate food maven. Subtly charming travelaholic. Web ninja. Proud internet scholar. Analyst. Coffee nerd. Total tv fanatic.",
   email: "tris.revill@something.com",
   password: "password",
   password_confirmation: "password",

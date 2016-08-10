@@ -18,7 +18,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :line_ids %>
+    <%= f.label :Lines_this_station_is_on %>
     <%= f.collection_select :line_ids, @lines, :id, :name, {}, { class: "form-control select2", multiple: true } %>
   </div>
 
