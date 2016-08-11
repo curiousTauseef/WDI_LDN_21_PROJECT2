@@ -30,6 +30,7 @@ class StationsController < ApplicationController
   # POST /stations.json
   def create
     @station = Station.new(station_params)
+    @lines = Line.all
 
     respond_to do |format|
       if @station.save

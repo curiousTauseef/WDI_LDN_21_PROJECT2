@@ -27,7 +27,7 @@ user1 = User.create(
   email: "kitty.barlow@something.com",
   password: "password",
   password_confirmation: "password",
-  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/1/Kat.jpeg')))
+  profile_picture: File.open(File.join(Rails.root, '/db/images/Kat.jpeg')))
 
 user2 = User.create(
   username: "cdawg",

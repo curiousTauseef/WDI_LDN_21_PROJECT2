@@ -23,12 +23,46 @@ $(document).on('turbolinks:load', function() {
 
   console.log("js loaded");
 
-  $datetimepicker = $(".datetimepicker");
-  $datetimepicker.datetimepicker();
+  function truncation(string) {
+      $chars=(string.text().split(""));
+      
+      if($chars.length < 180) {
+        return ($chars.join(""));
+      }
+      else {
+        $str = ($chars.slice(0,170).join(""));
+        return ($str+"...");
+      }
+    }
+
+   $('.postPreview').each(function() {
+      $newShortText = truncation($(this));
+      $(this).text($newShortText);
+    });
+
+  $(".datetimepicker").datetimepicker({
+    format: "YYYY-MM-DD hh:mm"
+  });
+
+  $("#error_explanation").addClass("alert alert-danger");
 
   $(".viewMessages").animate({ scrollTop: $(document).height() }, 0);
 
-  $('.select2').select2();
+  if(!$('.select2').data('select2')) {
+    $('.select2').select2();
+
+    uniqueLi = {};
+
+    $("li.select2-selection__choice").each(function () {
+      var thisVal = $(this).text();
+
+      if ( !(thisVal in uniqueLi) ) {
+        uniqueLi[thisVal] = "";
+      } else {
+        $(this).remove();
+      }
+    })
+  }
 
   var $searchArea = $('.searchArea');
 

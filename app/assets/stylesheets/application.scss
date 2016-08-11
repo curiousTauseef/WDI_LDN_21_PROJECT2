@@ -6,16 +6,34 @@
 
 /*GLOBAL*/
 
+body {
+  background: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
+.badge {
+  background-color: #E4572E;
+}
 /*HOME*/
 
 * {
   font-family: 'Raleway', sans-serif; 
 }
 
+
+a {
+  color: #E4572E;
+  font-weight: bold;
+}
+
 a:hover {
   text-decoration: none;
+  color: lighten(#E4572E, 10%)
 }
+
 
 h1, h2, h3, h4 {
   text-transform: uppercase;
@@ -28,13 +46,14 @@ h1, h2, h3, h4 {
   
   position: absolute;
   background: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
-  // background-color: rgba(25,25,25,0.25)
   z-index: 1;
 }
 
+// background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+
 .homepage {
-  background-image: url("london-underground.jpg");
-  background-repeat: none;
+  background: url("london-underground.jpg") no-repeat center center fixed; 
+  background-repeat: no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -105,7 +124,11 @@ h1, h2, h3, h4 {
 /*NAV*/
 
 .navbar, .navbar-brand, .preNav {
-  background-color: #222222;
+  // background-color: #222222;
+}
+
+.navbar {
+  border-radius: 0px;
 }
 preNav {
   vertical-align: middle;
@@ -114,12 +137,14 @@ preNav {
 color: #F8C213;
 font-weight: 900;
 font-size: 2em;
+font-family: 'Lato', sans-serif;
 }
 
 .brand2{
   color: #FBFBFF;
   font-weight: 100;
   font-size: 2em;
+  font-family: 'Lato', sans-serif;
 }
 
 .roundel {
@@ -135,9 +160,30 @@ margin:0 auto;
 /*POSTS INDEX*/
 div.media-left img, div.media-right img  {
   border-radius: 100%;
-  border: 5px solid #F8C213;
+  border: 5px solid #F8C213;  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.postBtn {
+  background-color: rgba(20,20,20,0.7);
+  border-radius: 0px;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  border: none;
+}
+
+.postBtn:hover {
+  background-color: lighten(rgba(20,20,20,0.7), 10%);
+}
+
+.btn-success:active:focus {
+  background-color: red;
+}
+
+.media {
+  overflow: visible;
+}
 .media:first-child {
       margin-top: 15px;
 }
@@ -147,10 +193,9 @@ div.media-left img, div.media-right img  {
   overflow: hidden;
 }
 
-.panel:after {
-  content: " ";
-  height: 20px;
-  background-color: red !important;
+.panel-default {
+  background: -webkit-linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.6));
+  border-radius: 0px;
 }
 
 /*STATIONS INDEX*/
@@ -163,6 +208,9 @@ div.media-left img, div.media-right img  {
 
 .profileDetail {
   border-radius: 100%;
+  border: 10px solid #F8C213;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /*MESSAGES INDEX*/
@@ -194,6 +242,19 @@ textarea {
   overflow: auto;
 }
 
+/*DEVISE ERROR MESSAGES*/
+
+div#error_explanation {
+  
+  li {
+  list-style: none;
+  }
+
+  h2 {
+    display:none;
+  }
+
+}
 
 
 /* background: linear-gradient(to bottom,rgba(255,255,255,0) 0,#fff 55%,#fff 90%,rgba(255,255,255,0) 100%); */

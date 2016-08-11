@@ -2,3 +2,5 @@
 
 <%= render 'form', station: @station %>
 
+<%= link_to 'Destroy', @station, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+
