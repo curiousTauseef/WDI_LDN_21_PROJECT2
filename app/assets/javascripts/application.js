@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require bootstrap
+//= require moment
+//= require bootstrap-datetimepicker
 //= require jquery_ujs
 //= require turbolinks
 //= require select2
@@ -19,18 +21,21 @@
 
 $(document).on('turbolinks:load', function() {
 
-  console.log("js loaded")
+  console.log("js loaded");
+
+  $datetimepicker = $(".datetimepicker");
+  $datetimepicker.datetimepicker();
 
   $(".viewMessages").animate({ scrollTop: $(document).height() }, 0);
 
   $('.select2').select2();
 
-  var $users = $('.users');
+  var $searchArea = $('.searchArea');
 
-  $('#search').on('keyup', function() {
+  $('.searchBox').on('keyup', function() {
     var input = this;
 
-    $users.each(function() {
+    $searchArea.each(function() {
       var searchString = $ (input).val().toLowerCase();
       var textToMatch = $(this).data("searchstring").toLowerCase();
 

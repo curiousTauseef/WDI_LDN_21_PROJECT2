@@ -1,7 +1,7 @@
 <% display = (user_signed_in? && current_user.admin?) ? 0 : 1 %>
 
 <%if station.posts.length >= display %>
-  <div class="col-md-4 col-sm-6">
+  <div class="col-md-4 col-sm-6 searchArea" data-searchstring="<%= station.name %>">
     <div class="panel panel-default post">
       <div class= "panel-body">
           <h2>

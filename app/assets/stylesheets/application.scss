@@ -1,17 +1,26 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 @import "select2";
 @import "animate.css";
 
+/*GLOBAL*/
 
-/*STATICS HOME*/
 
-*{
-  font-family: 'Lato', sans-serif;
+/*HOME*/
+
+* {
+  font-family: 'Raleway', sans-serif; 
 }
+
+a:hover {
+  text-decoration: none;
+}
+
 h1, h2, h3, h4 {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif;
 }
 .shader {
   width: 100%;
@@ -38,21 +47,19 @@ h1, h2, h3, h4 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  // background: red;
-
   .centered {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
     z-index: 2;
-    max-width: 100%;
+    width: 100%;
   }
 
   .love {
     color: #F8C213;
     font-weight: 900;
-    font-size: 61px;
+    font-size: 5em;
     animation-duration: 3s;
     display: inline-block;
   }
@@ -60,15 +67,72 @@ h1, h2, h3, h4 {
   .underground {
     color: #FBFBFF;
     font-weight: 100;
-    font-size: 61px;
+    font-size: 5em;
     animation-duration: 3s;
     display:inline-block;
   }
 
+  .slogan {
+    font-family: 'Raleway', sans-serif; 
+    color: #757575;
+    font-size: 1.8em;
+    font-weight: 100;
+    animation-duration: 2s;
+    animation-delay: 3s;
+  }
+
+  .homeNav {
+
+    a {
+      padding: 0 20px;
+    }
+
+    a:hover {
+      color: lighten(#E4572E, 10%);
+    }
+
+    .homeLinks {
+      font-size: 1.5em;
+      animation-duration: 2s;
+      animation-delay: 3s;
+      color: #E4572E;
+    }
+
+  }
+
 }
 
- /*POSTS INDEX*/
+/*NAV*/
 
+.navbar, .navbar-brand, .preNav {
+  background-color: #222222;
+}
+preNav {
+  vertical-align: middle;
+}
+.brand1 {
+color: #F8C213;
+font-weight: 900;
+font-size: 2em;
+}
+
+.brand2{
+  color: #FBFBFF;
+  font-weight: 100;
+  font-size: 2em;
+}
+
+.roundel {
+display: inline-block;
+margin:0 auto;
+}
+
+.roundel img {
+ padding: 10px
+}
+
+
+/*POSTS INDEX*/
 div.media-left img, div.media-right img  {
   border-radius: 100%;
   border: 5px solid #F8C213;

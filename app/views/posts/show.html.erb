@@ -9,7 +9,7 @@
 <div class="media-body">
   <h2 class="media-heading"><%= link_to @post.title, "/posts/#{@post.id}"%></h2>
   <p><%= @post.user.first_name %> <%= @post.user.last_name %> @<%= @post.user.username %></p>
-  <p><%= @post.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
+  <p><%= @post.formatted_date %></p>
   <p><%= @post.body%></p>
 
   <% if user_signed_in? && (current_user == @post.user || current_user.admin?) %>

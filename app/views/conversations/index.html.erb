@@ -37,15 +37,11 @@
 
       <h2>Users</h2>
 
-      <div class="form-group has-feedback">
-          <input type="text" class="form-control" placeholder="Search" id="search">
-          <i class="glyphicon glyphicon-search form-control-feedback"></i>
-      </div>
-
+      <%= render "partials/searchbox" %>
       
         <% @users.sort_by{ |u| u.first_name.downcase }.each do |user| %>
 
-          <div class="media users" data-searchstring="<%= user.username %> <%= user.first_name %> <%= user.last_name %>">
+          <div class="media searchArea" data-searchstring="<%= user.username %> <%= user.first_name %> <%= user.last_name %>">
             <div class="media-left">
               <% if user.profile_picture.thumb.url %>
                 <%= link_to (image_tag user.profile_picture.thumb.url), "/users/#{user.id}" %>

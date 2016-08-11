@@ -1,4 +1,10 @@
+<div class="shader"></div>
 <div class="centered">
-<h1>Love Underground</h1>
-<p>Login</p>
+  <h1 class="love animated slideInLeft">Love</h1>
+  <h1 class="underground animated slideInLeft">Underground</h1>
+  <p class="slogan animated fadeIn">Find your missed connection</p>
+  <div class="homeNav">
+    <%=link_to "LOGIN", new_user_session_path, class: "homeLinks animated fadeIn" %>
+    <%=link_to "REGISTER", new_user_registration_path, class: "homeLinks animated fadeIn" %>
+  </div>
 </div>

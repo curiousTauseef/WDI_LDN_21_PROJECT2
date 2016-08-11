@@ -22,13 +22,28 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :date_time %>
-    <%= f.datetime_select :date_time, class: "form-control" %>
+    <%= f.label :stations_where_you_connected %>
+    <%= f.grouped_collection_select :station_ids, @lines, :stations, :name, :id, :name, {}, { class: "form-control select2", multiple: true } %>
   </div>
 
   <div class="form-group">
-    <%= f.label :stations_where_you_connected %>
-    <%= f.grouped_collection_select :station_ids, @lines, :stations, :name, :id, :name, {}, { class: "form-control select2", multiple: true } %>
+    <%= f.label :date_time %>
+    <div class="input-group date datetimepicker" data-datetime="<%= @post.date_time %>">
+      <%= f.text_field :date_time, class: "form-control" %>
+      <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date_time %>
+    <div class="input-group">
+      <input type="datetime" name="post[:date_time]" value="<%= @post.date_time %>" class="form-control">
+      <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
   </div>
 
   <div class="actions">
