@@ -36,6 +36,7 @@ body {
 a {
   color: #E4572E;
   font-weight: bold;
+  text-decoration: none;
 }
 
 a:hover {
@@ -58,7 +59,6 @@ h1, h2, h3, h4 {
   z-index: 1;
 }
 
-// background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
 
 .homepage {
   background: url("london-underground.jpg") no-repeat center center fixed; 
@@ -130,23 +130,25 @@ h1, h2, h3, h4 {
 
 }
 
-/*NAV*/
+/*ABOUT*/
 
-.navbar, .navbar-brand, .preNav {
-  // background-color: #222222;
+.sparkImg {
+  width: 100%;
+  margin: 20px 0px;
 }
+
+/*NAV*/
 
 .navbar {
   border-radius: 0px;
 }
-preNav {
-  vertical-align: middle;
-}
+
+
 .brand1 {
-color: #F8C213;
-font-weight: 900;
-font-size: 5em;
-font-family: 'Lato', sans-serif;
+  color: #F8C213;
+  font-weight: 900;
+  font-size: 5em;
+  font-family: 'Lato', sans-serif;
 }
 
 .brand2{
@@ -305,7 +307,43 @@ div#error_explanation {
 
 }
 
+/*MEDIA QUERIES*/
 
-/* background: linear-gradient(to bottom,rgba(255,255,255,0) 0,#fff 55%,#fff 90%,rgba(255,255,255,0) 100%); */
+@media screen and (max-width: 850px) {
+    .roundel {
+        display: none;
+    }
+
+    .navLogo a {
+      font-size: 0.8em; 
+
+    }
+
+    .preNav {
+      text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-default .navbar-nav > li > a:hover {
+      background-color: rgba(20,20,20,0.1);
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .navLogo a {
+      font-size: 0.5em; 
+    }
+
+    .sparkImg {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .sparkImg img {
+      width: 400px;
+    }
+}
 
 
