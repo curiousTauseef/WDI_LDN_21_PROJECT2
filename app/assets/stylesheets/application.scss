@@ -30,11 +30,16 @@ body {
   border-radius: 0px;
 }
 
-.btn-primary {
+.btn-primary, .btn-primary:active:focus {
   background-color: rgba(20,20,20,0.7);
   border-radius: 0px;
   border: none;
 } 
+
+.btn-primary:hover {
+  background-color: darken(rgba(20,20,20,0.7),15%);
+}
+
 
 a {
   color: #E4572E;
@@ -137,6 +142,10 @@ h1, h2, h3, h4 {
 
 .sparkImg {
   width: 100%;
+  // margin: 20px 0px;
+}
+
+.sparkImg img {
   margin: 20px 0px;
 }
 
@@ -194,10 +203,6 @@ div.media-left img, div.media-right img  {
   background-color: lighten(rgba(20,20,20,0.7), 10%);
 }
 
-.btn-success:active:focus {
-  background-color: red;
-}
-
 .media {
   overflow: visible;
 }
@@ -206,7 +211,7 @@ div.media-left img, div.media-right img  {
 }
 
 .post {
-  height: 300px;
+  height: 320px;
   overflow: hidden;
 }
 
@@ -271,7 +276,7 @@ textarea {
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    background-color: red;
+    background-color: rgba(20,20,20,0.7);
 }
 
 .form-control::-webkit-input-placeholder {
@@ -336,7 +341,7 @@ div#error_explanation {
 
 @media screen and (max-width: 600px) {
     .navLogo a {
-      font-size: 0.5em; 
+      font-size: 0.45em; 
     }
 
     .sparkImg {
@@ -345,7 +350,7 @@ div#error_explanation {
     }
 
     .sparkImg img {
-      width: 400px;
+      width: 100%;
     }
 }
 

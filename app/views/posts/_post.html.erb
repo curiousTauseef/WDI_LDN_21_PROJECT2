@@ -15,7 +15,7 @@
           <p><%= post.formatted_date %></p>
           <p class="postPreview"><%= post.body%></p>
 
-          <% if post.body.length > 179 %>
+          <% if post.body.length > 149 %>
             <%= link_to "Read more", "/posts/#{post.id}", class: "btn btn-primary postBtn" %>
           <% end %>
 

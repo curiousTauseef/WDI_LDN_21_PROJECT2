@@ -17,7 +17,7 @@
 
   <% if user_signed_in? && current_user.admin? %>
     <%= link_to 'Edit', edit_station_path(@station), class: "btn btn-primary" %></td>
-    <%= link_to 'Destroy', @station, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+    <%= link_to 'Delete', @station, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
   <% end %>
 </div>
 

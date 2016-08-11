@@ -34,11 +34,11 @@ $(document).on('turbolinks:load', function() {
   function truncation(string) {
       $chars=(string.text().split(""));
       
-      if($chars.length < 180) {
+      if($chars.length < 150) {
         return ($chars.join(""));
       }
       else {
-        $str = ($chars.slice(0,179).join(""));
+        $str = ($chars.slice(0,149).join(""));
         return ($str+"...");
       }
     }
