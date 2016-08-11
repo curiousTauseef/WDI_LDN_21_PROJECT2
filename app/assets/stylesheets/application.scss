@@ -8,6 +8,9 @@
 
 body {
   background: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  background: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  background: -moz-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
   height: 100%;
   margin: 0;
   background-repeat: no-repeat;
