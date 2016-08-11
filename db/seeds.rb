@@ -6,19 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Load models
-require_relative '../app/models/post.rb'
-require_relative '../app/models/station.rb'
-require_relative '../app/models/user.rb'
-require_relative '../app/models/line.rb'
+["users", "posts", "stations", "lines", "messages", "conversations", "lines_stations", "posts_stations"].each do |table_name|
+  ActiveRecord::Base.connection.execute("TRUNCATE #{table_name} RESTART IDENTITY CASCADE")
+end
 
-
-User.destroy_all
-Post.destroy_all
-Station.destroy_all 
-Line.destroy_all  
-
-user1 = User.create(
+user1 = User.create!(
   username: "kittykat",
   first_name: "Katherine",
   last_name: "Barlow",
@@ -29,7 +21,7 @@ user1 = User.create(
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/db/images/Kat.jpeg')))
 
-user2 = User.create(
+user2 = User.create!(
   username: "cdawg",
   first_name: "Conrad",
   last_name: "Watson",
@@ -39,7 +31,7 @@ user2 = User.create(
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/db/images/cody.jpg')))
 
-user3 = User.create(
+user3 = User.create!(
   username: "saltyolive",
   first_name: "Olive",
   last_name: "Snook",
@@ -49,7 +41,7 @@ user3 = User.create(
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/db/images/Kat1.jpeg')))
 
-user4 = User.create(
+user4 = User.create!(
   username: "raneG",
   first_name: "Rane",
   last_name: "Gowan",
@@ -59,7 +51,7 @@ user4 = User.create(
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/db/images/rane.jpg')))
 
-user5 = User.create(
+user5 = User.create!(
   username: "chansec",
   first_name: "Chanse",
   last_name: "Campbell",
@@ -69,7 +61,7 @@ user5 = User.create(
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/db/images/chanse.png')))
 
-user6 = User.create(
+user6 = User.create!(
   username: "mickyginger",
   first_name: "Mike",
   last_name: "Hayden",
@@ -79,7 +71,7 @@ user6 = User.create(
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/db/images/mike.jpg')))
 
-user7 = User.create(
+user7 = User.create!(
   username: "lulu69",
   first_name: "Leanne",
   last_name: "Carter",
@@ -89,7 +81,7 @@ user7 = User.create(
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/db/images/lua.jpeg')))
 
-user8 = User.create(
+user8 = User.create!(
   username: "UncleChris",
   first_name: "Chris",
   last_name: "Rademacher",
@@ -99,327 +91,327 @@ user8 = User.create(
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/db/images/tris.jpg')))
 
-post1 = Post.create(
+post1 = Post.create!(
   title: "Greek guy who helped me out of Bank tube",     
   body: "I am Kat - the girl who looked very lost at Bank tube on my way to a first date. I was wearing a blue shirt dress and cream heels. I was just back from living in Nigeria. You were on your way out in Bank then Shoreditch wearing office attire. You walked me out and I really wanted to ask for your number but my date was there - awkward!!!! Hope you’re out there and single!!!",
   date_time: "2016-07-16 19:15",
   user_id: 1)
 
-post2 = Post.create(
+post2 = Post.create!(
   title: "Central Line Holborn Saturday",     
   body: "We were on a central line train around 4:30pm on Saturday July 23rd. You (tall, good looking, wearing a hat and headphones) moved from where you were standing next to me by the door just before the Holborn stop where you got off. In the odd chance you see this and want to meet up, let's grab a drink.",
   date_time: "2016-07-23 16:30",
   user_id: 5)
 
-post3 = Post.create(
+post3 = Post.create!(
   title: "Violin guy on train",     
   body: "We exchanged glances at Liverpool Street station before getting on the 10.42pm train on Sunday to Oxford Circus. You then say down in the seats adjacent. Was going to strike up a conversation when we sat down but then the lady nearby asked you about your instrument. Doh. I was wearing blue trousers and a cardigan and listening to radio through my phone. I felt a connection with you - would love to meet properly for a drink or coffee!",
   date_time: "2016-07-31 10:42",
   user_id: 3)
 
-post4 = Post.create(
+post4 = Post.create!(
   title: "Handsome chap with dark hair",     
   body: "7.45ish, Northern Line Northbound platform. To the handsome chap with a capacity for prolongued eye contact. We were face to face til the doors opened, you got off as I got on. You kept looking as you walked into the distance down the stairs. I was wearing round gold glasses, black t-shirt, carrying a tweed jacket and a small brown suitcase. If I’d not had a flight to catch, I’d have stopped and talked!",
   date_time: "2016-06-23 07:45",
   user_id: 2)
 
-post5 = Post.create(
+post5 = Post.create!(
   title: "Ginger guy on the Northern line to Oxford Circus",     
   body: "Hi, tall, ginger guy sitting on the northbound Northern line. You were wearing shorts and a greenish long sleeved blouse. I got on at Camden Town, stood next to you and accidentally step on your foot. we both got off at Oxford Circus around 9.30 am on Thursday, 07/07 but I immediately lost track of you. I promise I won’t step on your feet when we’ll go dancing! The brunette, long haired girl wearing glasses, a striped skirt and ballerina flat shoes.",
   date_time: "2016-07-07 09:30",
   user_id: 7)
 
-post6 = Post.create(
+post6 = Post.create!(
   title: "We met in the Central Line London Tube Underground",     
   body: "I met a boy with black, curly and short hair, blue eyes and tall in the Central Line Underground towards Newbury Park, in London on Friday night at about 22:30 on 10/6/2016. He was wearing dark blue T-shirt, jeans and metal watch. He also has a skull tattoo on his right arm (bicep). We smiled and looked at each other a few times. Then I got off the tube at Stratford and we waved Goodbye. I would like to see you again.",
   date_time: "2016-06-10 22:30",
   user_id: 2)
 
-post7 = Post.create(
+post7 = Post.create!(
   title: "'Catwoman' on the District Line, Mon. 1/8",     
   body: "You: beautiful, curvaceous girl with brown, curly hair and fair skin, wearing cat ear headphones (or cat ears and headphones?), and a black bodysuit/leggings. Maybe coming from a workout? Me: slim, seated nearby, wearing a business suit, heading to work, just my regular ears, with eyes possibly popping out of my head. I hoped you too would be on the train until Aldgate station so I could talk to you, but alas, you got off before. Of course, headphones present a challenge, and this being the London area, you're almost definitely in an exclusive, long-term, all-consuming relationship...Anyway, even if the sight of someone like you were not rare for this neighborhood - and even rarer for the tube - you still would have made my day. Thanks for that. Meow! (Sorry.)",
   date_time: "2016-08-01 08:30",
   user_id: 4)
 
-post8 = Post.create(
+post8 = Post.create!(
   title: "Train to Heathrow Airport",     
   body: "We ended up sitting together at the front of the train, talked a bit, and otherwise had a pleasant ride together. It's a shame I had to get off so soon when you were going all the way to Heathrow, I really wanted to ask you out for drinks. You're older than me, but I really don't mind, especially with your gorgeous smile. Hopefully I hear from you.",
   date_time: "2016-07-31 16:30",
   user_id: 6)
 
-post9 = Post.create(
+post9 = Post.create!(
   title: "Blonde guy with flesh tunnels x ",     
   body: "I get in the Overground at 17:47 in Liverpool Street station. I was sitting in front of you. I was wearing a blue cap turned backwards and a black jumper. You was just amazing sitting there and watching me eating my crisps. I felt uncomfortable so I moved to another chair. I got off the train at Tottenham Court Road. I waited until the last moment to talk to you. So, young blonde man, you better answer this time, cause I really want to know who made me blush for the first time after 3 years! Blew my chance on 02/08/2016 @ 17:47",
   date_time: "2016-08-02 17:47",
   user_id: 8)
 
-acton_town = Station.create(name:"Acton Town")
-aldgate = Station.create(name:"Aldgate")
-aldgate_east = Station.create(name:"Aldgate East")
-alperton = Station.create(name:"Alperton")
-amersham = Station.create(name:"Amersham")
-angel = Station.create(name:"Angel")
-archway = Station.create(name:"Archway")
-arnos_grove = Station.create(name:"Arnos Grove")
-arsenal = Station.create(name:"Arsenal")
-baker_street = Station.create(name:"Baker Street")
-balham = Station.create(name:"Balham")
-bank = Station.create(name:"Bank")
-barbican = Station.create(name:"Barbican")
-barking = Station.create(name:"Barking")
-barkingside = Station.create(name:"Barkingside")
-barons_court = Station.create(name:"Barons Court")
-bayswater = Station.create(name:"Bayswater")
-becontree = Station.create(name:"Becontree")
-belsize_park = Station.create(name:"Belsize Park")
-bermondsey = Station.create(name:"Bermondsey")
-bethnal_green = Station.create(name:"Bethnal Green")
-blackfriars = Station.create(name:"Blackfriars")
-blackhorse_road = Station.create(name:"Blackhorse Road")
-bond_street = Station.create(name:"Bond Street")
-borough = Station.create(name:"Borough")
-boston_manor = Station.create(name:"Boston Manor")
-bounds_green = Station.create(name:"Bounds Green")
-bow_road = Station.create(name:"Bow Road")
-brent_cross = Station.create(name:"Brent Cross")
-brixton = Station.create(name:"Brixton")
-bromley_by_bow = Station.create(name:"Bromley-by-Bow")
-buckhurst_hill = Station.create(name:"Buckhurst Hill")
-burnt_oak = Station.create(name:"Burnt Oak")
-caledonian_road = Station.create(name:"Caledonian Road")
-camden_town = Station.create(name:"Camden Town")
-canada_water = Station.create(name:"Canada Water")
-canary_wharf = Station.create(name:"Canary Wharf")
-canning_town = Station.create(name:"Canning Town")
-cannon_street = Station.create(name:"Cannon Street")
-canons_park = Station.create(name:"Canons Park")
-chalfont_latimer = Station.create(name:"Chalfont & Latimer")
-chalk_farm = Station.create(name:"Chalk Farm")
-chancery_lane = Station.create(name:"Chancery Lane")
-charing_cross = Station.create(name:"Charing Cross")
-chesham = Station.create(name:"Chesham")
-chigwell = Station.create(name:"Chigwell")
-chiswick_park = Station.create(name:"Chiswick Park")
-chorleywood = Station.create(name:"Chorleywood")
-clapham_common = Station.create(name:"Clapham Common")
-clapham_north = Station.create(name:"Clapham North")
-clapham_south = Station.create(name:"Clapham South")
-cockfosters = Station.create(name:"Cockfosters")
-colindale = Station.create(name:"Colindale")
-colliers_wood = Station.create(name:"Colliers Wood")
-covent_garden = Station.create(name:"Covent Garden")
-croxley = Station.create(name:"Croxley")
-dagenham_east = Station.create(name:"Dagenham East")
-dagenham_heathway = Station.create(name:"Dagenham Heathway")
-debden = Station.create(name:"Debden")
-dollis_hill = Station.create(name:"Dollis Hill")
-ealing_broadway = Station.create(name:"Ealing Broadway")
-ealing_common = Station.create(name:"Ealing Common")
-earls_court = Station.create(name:"Earl's Court")
-east_acton = Station.create(name:"East Acton")
-east_finchley = Station.create(name:"East Finchley")
-east_ham = Station.create(name:"East Ham")
-east_putney = Station.create(name:"East Putney")
-eastcote = Station.create(name:"Eastcote")
-edgware = Station.create(name:"Edgware")
-edgware_road = Station.create(name:"Edgware Road")
-elephant_castle = Station.create(name:"Elephant & Castle")
-elm_park = Station.create(name:"Elm Park")
-embankment = Station.create(name:"Embankment")
-epping = Station.create(name:"Epping")
-euston = Station.create(name:"Euston")
-euston_square = Station.create(name:"Euston Square")
-fairlop = Station.create(name:"Fairlop")
-farringdon = Station.create(name:"Farringdon")
-finchley_central = Station.create(name:"Finchley Central")
-finchley_road = Station.create(name:"Finchley Road")
-finsbury_park = Station.create(name:"Finsbury Park")
-fulham_broadway = Station.create(name:"Fulham Broadway")
-gants_hill = Station.create(name:"Gants Hill")
-gloucester_road = Station.create(name:"Gloucester Road")
-golders_green = Station.create(name:"Golders Green")
-goldhawk_road = Station.create(name:"Goldhawk Road")
-goodge_street = Station.create(name:"Goodge Street")
-grange_hill = Station.create(name:"Grange Hill")
-great_portland_street = Station.create(name:"Great Portland Street")
-green_park = Station.create(name:"Green Park")
-greenford = Station.create(name:"Greenford")
-gunnersbury = Station.create(name:"Gunnersbury")
-hainault = Station.create(name:"Hainault")
-hammersmith = Station.create(name:"Hammersmith")
-hampstead = Station.create(name:"Hampstead")
-hanger_lane = Station.create(name:"Hanger Lane")
-harlesden = Station.create(name:"Harlesden")
-harrow_wealdstone = Station.create(name:"Harrow & Wealdstone")
-harrow_on_the_hill = Station.create(name:"Harrow-on-the-Hill")
-hatton_cross = Station.create(name:"Hatton Cross")
-heathrow_terminal_4 = Station.create(name:"Heathrow Terminal 4")
-heathrow_terminal_5 = Station.create(name:"Heathrow Terminal 5")
-heathrow_terminals_2_3 = Station.create(name:"Heathrow Terminals 2 & 3")
-hendon_central = Station.create(name:"Hendon Central")
-high_barnet = Station.create(name:"High Barnet")
-high_street_kensington = Station.create(name:"High Street Kensington")
-highbury_islington = Station.create(name:"Highbury & Islington")
-highgate = Station.create(name:"Highgate")
-hillingdon = Station.create(name:"Hillingdon")
-holborn = Station.create(name:"Holborn")
-holland_park = Station.create(name:"Holland Park")
-holloway_road = Station.create(name:"Holloway Road")
-hornchurch = Station.create(name:"Hornchurch")
-hounslow_central = Station.create(name:"Hounslow Central")
-hounslow_east = Station.create(name:"Hounslow East")
-hounslow_west = Station.create(name:"Hounslow West")
-hyde_park_corner = Station.create(name:"Hyde Park Corner")
-ickenham = Station.create(name:"Ickenham")
-kennington = Station.create(name:"Kennington")
-kensal_green = Station.create(name:"Kensal Green")
-kensington_olympia = Station.create(name:"Kensington (Olympia)")
-kentish_town = Station.create(name:"Kentish Town")
-kenton = Station.create(name:"Kenton")
-kew_gardens = Station.create(name:"Kew Gardens")
-kilburn = Station.create(name:"Kilburn")
-kilburn_park = Station.create(name:"Kilburn Park")
-kings_cross_st_pancras = Station.create(name:"King's Cross St. Pancras")
-kingsbury = Station.create(name:"Kingsbury")
-knightsbridge = Station.create(name:"Knightsbridge")
-ladbroke_grove = Station.create(name:"Ladbroke Grove")
-lambeth_north = Station.create(name:"Lambeth North")
-lancaster_gate = Station.create(name:"Lancaster Gate")
-latimer_road = Station.create(name:"Latimer Road")
-leicester_square = Station.create(name:"Leicester Square")
-leyton = Station.create(name:"Leyton")
-leytonstone = Station.create(name:"Leytonstone")
-liverpool_street = Station.create(name:"Liverpool Street")
-london_bridge = Station.create(name:"London Bridge")
-loughton = Station.create(name:"Loughton")
-maida_vale = Station.create(name:"Maida Vale")
-manor_house = Station.create(name:"Manor House")
-mansion_house = Station.create(name:"Mansion House")
-marble_arch = Station.create(name:"Marble Arch")
-marylebone = Station.create(name:"Marylebone")
-mile_end = Station.create(name:"Mile End")
-mill_hill_east = Station.create(name:"Mill Hill East")
-monument = Station.create(name:"Monument")
-moor_park = Station.create(name:"Moor Park")
-moorgate = Station.create(name:"Moorgate")
-morden = Station.create(name:"Morden")
-mornington_crescent = Station.create(name:"Mornington Crescent")
-neasden = Station.create(name:"Neasden")
-newbury_park = Station.create(name:"Newbury Park")
-north_acton = Station.create(name:"North Acton")
-north_ealing = Station.create(name:"North Ealing")
-north_greenwich = Station.create(name:"North Greenwich")
-north_harrow = Station.create(name:"North Harrow")
-north_wembley = Station.create(name:"North Wembley")
-northfields = Station.create(name:"Northfields")
-northolt = Station.create(name:"Northolt")
-northwick_park = Station.create(name:"Northwick Park")
-northwood = Station.create(name:"Northwood")
-northwood_hills = Station.create(name:"Northwood Hills")
-notting_hill_gate = Station.create(name:"Notting Hill Gate")
-oakwood = Station.create(name:"Oakwood")
-old_street = Station.create(name:"Old Street")
-osterley = Station.create(name:"Osterley")
-oval = Station.create(name:"Oval")
-oxford_circus = Station.create(name:"Oxford Circus")
-paddington = Station.create(name:"Paddington")
-park_royal = Station.create(name:"Park Royal")
-parsons_green = Station.create(name:"Parsons Green")
-perivale = Station.create(name:"Perivale")
-piccadilly_circus = Station.create(name:"Piccadilly Circus")
-pimlico = Station.create(name:"Pimlico")
-pinner = Station.create(name:"Pinner")
-plaistow = Station.create(name:"Plaistow")
-preston_road = Station.create(name:"Preston Road")
-putney_bridge = Station.create(name:"Putney Bridge")
-queens_park = Station.create(name:"Queen's Park")
-queensbury = Station.create(name:"Queensbury")
-queensway = Station.create(name:"Queensway")
-ravenscourt_park = Station.create(name:"Ravenscourt Park")
-rayners_lane = Station.create(name:"Rayners Lane")
-redbridge = Station.create(name:"Redbridge")
-regents_park = Station.create(name:"Regent's Park")
-richmond = Station.create(name:"Richmond")
-rickmansworth = Station.create(name:"Rickmansworth")
-roding_valley = Station.create(name:"Roding Valley")
-royal_oak = Station.create(name:"Royal Oak")
-ruislip = Station.create(name:"Ruislip")
-ruislip_gardens = Station.create(name:"Ruislip Gardens")
-ruislip_manor = Station.create(name:"Ruislip Manor")
-russell_square = Station.create(name:"Russell Square")
-seven_sisters = Station.create(name:"Seven Sisters")
-shepherds_bush = Station.create(name:"Shepherd's Bush")
-shepherds_bush_market = Station.create(name:"Shepherd's Bush Market")
-sloane_square = Station.create(name:"Sloane Square")
-snaresbrook = Station.create(name:"Snaresbrook")
-south_ealing = Station.create(name:"South Ealing")
-south_harrow = Station.create(name:"South Harrow")
-south_kensington = Station.create(name:"South Kensington")
-south_kenton = Station.create(name:"South Kenton")
-south_ruislip = Station.create(name:"South Ruislip")
-south_wimbledon = Station.create(name:"South Wimbledon")
-south_woodford = Station.create(name:"South Woodford")
-southfields = Station.create(name:"Southfields")
-southgate = Station.create(name:"Southgate")
-southwark = Station.create(name:"Southwark")
-st_jamess_park = Station.create(name:"St. James's Park")
-st_johns_wood = Station.create(name:"St. John's Wood")
-st_pauls = Station.create(name:"St. Paul's")
-stamford_brook = Station.create(name:"Stamford Brook")
-stanmore = Station.create(name:"Stanmore")
-stepney_green = Station.create(name:"Stepney Green")
-stockwell = Station.create(name:"Stockwell")
-stonebridge_park = Station.create(name:"Stonebridge Park")
-stratford = Station.create(name:"Stratford")
-sudbury_hill = Station.create(name:"Sudbury Hill")
-sudbury_town = Station.create(name:"Sudbury Town")
-swiss_cottage = Station.create(name:"Swiss Cottage")
-temple = Station.create(name:"Temple")
-theydon_bois = Station.create(name:"Theydon Bois")
-tooting_bec = Station.create(name:"Tooting Bec")
-tooting_broadway = Station.create(name:"Tooting Broadway")
-tottenham_court_road = Station.create(name:"Tottenham Court Road")
-tottenham_hale = Station.create(name:"Tottenham Hale")
-totteridge_whetstone = Station.create(name:"Totteridge & Whetstone")
-tower_hill = Station.create(name:"Tower Hill")
-tufnell_park = Station.create(name:"Tufnell Park")
-turnham_green = Station.create(name:"Turnham Green")
-turnpike_lane = Station.create(name:"Turnpike Lane")
-upminster = Station.create(name:"Upminster")
-upminster_bridge = Station.create(name:"Upminster Bridge")
-upney = Station.create(name:"Upney")
-upton_park = Station.create(name:"Upton Park")
-uxbridge = Station.create(name:"Uxbridge")
-vauxhall = Station.create(name:"Vauxhall")
-victoria = Station.create(name:"Victoria")
-walthamstow_central = Station.create(name:"Walthamstow Central")
-wanstead = Station.create(name:"Wanstead")
-warren_street = Station.create(name:"Warren Street")
-warwick_avenue = Station.create(name:"Warwick Avenue")
-waterloo = Station.create(name:"Waterloo")
-watford = Station.create(name:"Watford")
-wembley_central = Station.create(name:"Wembley Central")
-wembley_park = Station.create(name:"Wembley Park")
-west_acton = Station.create(name:"West Acton")
-west_brompton = Station.create(name:"West Brompton")
-west_finchley = Station.create(name:"West Finchley")
-west_ham = Station.create(name:"West Ham")
-west_hampstead = Station.create(name:"West Hampstead")
-west_harrow = Station.create(name:"West Harrow")
-west_kensington = Station.create(name:"West Kensington")
-west_ruislip = Station.create(name:"West Ruislip")
-westbourne_park = Station.create(name:"Westbourne Park")
-westminster = Station.create(name:"Westminster")
-white_city = Station.create(name:"White City")
-whitechapel = Station.create(name:"Whitechapel")
-willesden_green = Station.create(name:"Willesden Green")
-willesden_junction = Station.create(name:"Willesden Junction")
-wimbledon = Station.create(name:"Wimbledon")
-wimbledon_park = Station.create(name:"Wimbledon Park")
-wood_green = Station.create(name:"Wood Green")
-wood_lane = Station.create(name:"Wood Lane")
-woodford = Station.create(name:"Woodford")
-woodside_park = Station.create(name:"Woodside Park")
+acton_town = Station.create!(name:"Acton Town")
+aldgate = Station.create!(name:"Aldgate")
+aldgate_east = Station.create!(name:"Aldgate East")
+alperton = Station.create!(name:"Alperton")
+amersham = Station.create!(name:"Amersham")
+angel = Station.create!(name:"Angel")
+archway = Station.create!(name:"Archway")
+arnos_grove = Station.create!(name:"Arnos Grove")
+arsenal = Station.create!(name:"Arsenal")
+baker_street = Station.create!(name:"Baker Street")
+balham = Station.create!(name:"Balham")
+bank = Station.create!(name:"Bank")
+barbican = Station.create!(name:"Barbican")
+barking = Station.create!(name:"Barking")
+barkingside = Station.create!(name:"Barkingside")
+barons_court = Station.create!(name:"Barons Court")
+bayswater = Station.create!(name:"Bayswater")
+becontree = Station.create!(name:"Becontree")
+belsize_park = Station.create!(name:"Belsize Park")
+bermondsey = Station.create!(name:"Bermondsey")
+bethnal_green = Station.create!(name:"Bethnal Green")
+blackfriars = Station.create!(name:"Blackfriars")
+blackhorse_road = Station.create!(name:"Blackhorse Road")
+bond_street = Station.create!(name:"Bond Street")
+borough = Station.create!(name:"Borough")
+boston_manor = Station.create!(name:"Boston Manor")
+bounds_green = Station.create!(name:"Bounds Green")
+bow_road = Station.create!(name:"Bow Road")
+brent_cross = Station.create!(name:"Brent Cross")
+brixton = Station.create!(name:"Brixton")
+bromley_by_bow = Station.create!(name:"Bromley-by-Bow")
+buckhurst_hill = Station.create!(name:"Buckhurst Hill")
+burnt_oak = Station.create!(name:"Burnt Oak")
+caledonian_road = Station.create!(name:"Caledonian Road")
+camden_town = Station.create!(name:"Camden Town")
+canada_water = Station.create!(name:"Canada Water")
+canary_wharf = Station.create!(name:"Canary Wharf")
+canning_town = Station.create!(name:"Canning Town")
+cannon_street = Station.create!(name:"Cannon Street")
+canons_park = Station.create!(name:"Canons Park")
+chalfont_latimer = Station.create!(name:"Chalfont & Latimer")
+chalk_farm = Station.create!(name:"Chalk Farm")
+chancery_lane = Station.create!(name:"Chancery Lane")
+charing_cross = Station.create!(name:"Charing Cross")
+chesham = Station.create!(name:"Chesham")
+chigwell = Station.create!(name:"Chigwell")
+chiswick_park = Station.create!(name:"Chiswick Park")
+chorleywood = Station.create!(name:"Chorleywood")
+clapham_common = Station.create!(name:"Clapham Common")
+clapham_north = Station.create!(name:"Clapham North")
+clapham_south = Station.create!(name:"Clapham South")
+cockfosters = Station.create!(name:"Cockfosters")
+colindale = Station.create!(name:"Colindale")
+colliers_wood = Station.create!(name:"Colliers Wood")
+covent_garden = Station.create!(name:"Covent Garden")
+croxley = Station.create!(name:"Croxley")
+dagenham_east = Station.create!(name:"Dagenham East")
+dagenham_heathway = Station.create!(name:"Dagenham Heathway")
+debden = Station.create!(name:"Debden")
+dollis_hill = Station.create!(name:"Dollis Hill")
+ealing_broadway = Station.create!(name:"Ealing Broadway")
+ealing_common = Station.create!(name:"Ealing Common")
+earls_court = Station.create!(name:"Earl's Court")
+east_acton = Station.create!(name:"East Acton")
+east_finchley = Station.create!(name:"East Finchley")
+east_ham = Station.create!(name:"East Ham")
+east_putney = Station.create!(name:"East Putney")
+eastcote = Station.create!(name:"Eastcote")
+edgware = Station.create!(name:"Edgware")
+edgware_road = Station.create!(name:"Edgware Road")
+elephant_castle = Station.create!(name:"Elephant & Castle")
+elm_park = Station.create!(name:"Elm Park")
+embankment = Station.create!(name:"Embankment")
+epping = Station.create!(name:"Epping")
+euston = Station.create!(name:"Euston")
+euston_square = Station.create!(name:"Euston Square")
+fairlop = Station.create!(name:"Fairlop")
+farringdon = Station.create!(name:"Farringdon")
+finchley_central = Station.create!(name:"Finchley Central")
+finchley_road = Station.create!(name:"Finchley Road")
+finsbury_park = Station.create!(name:"Finsbury Park")
+fulham_broadway = Station.create!(name:"Fulham Broadway")
+gants_hill = Station.create!(name:"Gants Hill")
+gloucester_road = Station.create!(name:"Gloucester Road")
+golders_green = Station.create!(name:"Golders Green")
+goldhawk_road = Station.create!(name:"Goldhawk Road")
+goodge_street = Station.create!(name:"Goodge Street")
+grange_hill = Station.create!(name:"Grange Hill")
+great_portland_street = Station.create!(name:"Great Portland Street")
+green_park = Station.create!(name:"Green Park")
+greenford = Station.create!(name:"Greenford")
+gunnersbury = Station.create!(name:"Gunnersbury")
+hainault = Station.create!(name:"Hainault")
+hammersmith = Station.create!(name:"Hammersmith")
+hampstead = Station.create!(name:"Hampstead")
+hanger_lane = Station.create!(name:"Hanger Lane")
+harlesden = Station.create!(name:"Harlesden")
+harrow_wealdstone = Station.create!(name:"Harrow & Wealdstone")
+harrow_on_the_hill = Station.create!(name:"Harrow-on-the-Hill")
+hatton_cross = Station.create!(name:"Hatton Cross")
+heathrow_terminal_4 = Station.create!(name:"Heathrow Terminal 4")
+heathrow_terminal_5 = Station.create!(name:"Heathrow Terminal 5")
+heathrow_terminals_2_3 = Station.create!(name:"Heathrow Terminals 2 & 3")
+hendon_central = Station.create!(name:"Hendon Central")
+high_barnet = Station.create!(name:"High Barnet")
+high_street_kensington = Station.create!(name:"High Street Kensington")
+highbury_islington = Station.create!(name:"Highbury & Islington")
+highgate = Station.create!(name:"Highgate")
+hillingdon = Station.create!(name:"Hillingdon")
+holborn = Station.create!(name:"Holborn")
+holland_park = Station.create!(name:"Holland Park")
+holloway_road = Station.create!(name:"Holloway Road")
+hornchurch = Station.create!(name:"Hornchurch")
+hounslow_central = Station.create!(name:"Hounslow Central")
+hounslow_east = Station.create!(name:"Hounslow East")
+hounslow_west = Station.create!(name:"Hounslow West")
+hyde_park_corner = Station.create!(name:"Hyde Park Corner")
+ickenham = Station.create!(name:"Ickenham")
+kennington = Station.create!(name:"Kennington")
+kensal_green = Station.create!(name:"Kensal Green")
+kensington_olympia = Station.create!(name:"Kensington (Olympia)")
+kentish_town = Station.create!(name:"Kentish Town")
+kenton = Station.create!(name:"Kenton")
+kew_gardens = Station.create!(name:"Kew Gardens")
+kilburn = Station.create!(name:"Kilburn")
+kilburn_park = Station.create!(name:"Kilburn Park")
+kings_cross_st_pancras = Station.create!(name:"King's Cross St. Pancras")
+kingsbury = Station.create!(name:"Kingsbury")
+knightsbridge = Station.create!(name:"Knightsbridge")
+ladbroke_grove = Station.create!(name:"Ladbroke Grove")
+lambeth_north = Station.create!(name:"Lambeth North")
+lancaster_gate = Station.create!(name:"Lancaster Gate")
+latimer_road = Station.create!(name:"Latimer Road")
+leicester_square = Station.create!(name:"Leicester Square")
+leyton = Station.create!(name:"Leyton")
+leytonstone = Station.create!(name:"Leytonstone")
+liverpool_street = Station.create!(name:"Liverpool Street")
+london_bridge = Station.create!(name:"London Bridge")
+loughton = Station.create!(name:"Loughton")
+maida_vale = Station.create!(name:"Maida Vale")
+manor_house = Station.create!(name:"Manor House")
+mansion_house = Station.create!(name:"Mansion House")
+marble_arch = Station.create!(name:"Marble Arch")
+marylebone = Station.create!(name:"Marylebone")
+mile_end = Station.create!(name:"Mile End")
+mill_hill_east = Station.create!(name:"Mill Hill East")
+monument = Station.create!(name:"Monument")
+moor_park = Station.create!(name:"Moor Park")
+moorgate = Station.create!(name:"Moorgate")
+morden = Station.create!(name:"Morden")
+mornington_crescent = Station.create!(name:"Mornington Crescent")
+neasden = Station.create!(name:"Neasden")
+newbury_park = Station.create!(name:"Newbury Park")
+north_acton = Station.create!(name:"North Acton")
+north_ealing = Station.create!(name:"North Ealing")
+north_greenwich = Station.create!(name:"North Greenwich")
+north_harrow = Station.create!(name:"North Harrow")
+north_wembley = Station.create!(name:"North Wembley")
+northfields = Station.create!(name:"Northfields")
+northolt = Station.create!(name:"Northolt")
+northwick_park = Station.create!(name:"Northwick Park")
+northwood = Station.create!(name:"Northwood")
+northwood_hills = Station.create!(name:"Northwood Hills")
+notting_hill_gate = Station.create!(name:"Notting Hill Gate")
+oakwood = Station.create!(name:"Oakwood")
+old_street = Station.create!(name:"Old Street")
+osterley = Station.create!(name:"Osterley")
+oval = Station.create!(name:"Oval")
+oxford_circus = Station.create!(name:"Oxford Circus")
+paddington = Station.create!(name:"Paddington")
+park_royal = Station.create!(name:"Park Royal")
+parsons_green = Station.create!(name:"Parsons Green")
+perivale = Station.create!(name:"Perivale")
+piccadilly_circus = Station.create!(name:"Piccadilly Circus")
+pimlico = Station.create!(name:"Pimlico")
+pinner = Station.create!(name:"Pinner")
+plaistow = Station.create!(name:"Plaistow")
+preston_road = Station.create!(name:"Preston Road")
+putney_bridge = Station.create!(name:"Putney Bridge")
+queens_park = Station.create!(name:"Queen's Park")
+queensbury = Station.create!(name:"Queensbury")
+queensway = Station.create!(name:"Queensway")
+ravenscourt_park = Station.create!(name:"Ravenscourt Park")
+rayners_lane = Station.create!(name:"Rayners Lane")
+redbridge = Station.create!(name:"Redbridge")
+regents_park = Station.create!(name:"Regent's Park")
+richmond = Station.create!(name:"Richmond")
+rickmansworth = Station.create!(name:"Rickmansworth")
+roding_valley = Station.create!(name:"Roding Valley")
+royal_oak = Station.create!(name:"Royal Oak")
+ruislip = Station.create!(name:"Ruislip")
+ruislip_gardens = Station.create!(name:"Ruislip Gardens")
+ruislip_manor = Station.create!(name:"Ruislip Manor")
+russell_square = Station.create!(name:"Russell Square")
+seven_sisters = Station.create!(name:"Seven Sisters")
+shepherds_bush = Station.create!(name:"Shepherd's Bush")
+shepherds_bush_market = Station.create!(name:"Shepherd's Bush Market")
+sloane_square = Station.create!(name:"Sloane Square")
+snaresbrook = Station.create!(name:"Snaresbrook")
+south_ealing = Station.create!(name:"South Ealing")
+south_harrow = Station.create!(name:"South Harrow")
+south_kensington = Station.create!(name:"South Kensington")
+south_kenton = Station.create!(name:"South Kenton")
+south_ruislip = Station.create!(name:"South Ruislip")
+south_wimbledon = Station.create!(name:"South Wimbledon")
+south_woodford = Station.create!(name:"South Woodford")
+southfields = Station.create!(name:"Southfields")
+southgate = Station.create!(name:"Southgate")
+southwark = Station.create!(name:"Southwark")
+st_jamess_park = Station.create!(name:"St. James's Park")
+st_johns_wood = Station.create!(name:"St. John's Wood")
+st_pauls = Station.create!(name:"St. Paul's")
+stamford_brook = Station.create!(name:"Stamford Brook")
+stanmore = Station.create!(name:"Stanmore")
+stepney_green = Station.create!(name:"Stepney Green")
+stockwell = Station.create!(name:"Stockwell")
+stonebridge_park = Station.create!(name:"Stonebridge Park")
+stratford = Station.create!(name:"Stratford")
+sudbury_hill = Station.create!(name:"Sudbury Hill")
+sudbury_town = Station.create!(name:"Sudbury Town")
+swiss_cottage = Station.create!(name:"Swiss Cottage")
+temple = Station.create!(name:"Temple")
+theydon_bois = Station.create!(name:"Theydon Bois")
+tooting_bec = Station.create!(name:"Tooting Bec")
+tooting_broadway = Station.create!(name:"Tooting Broadway")
+tottenham_court_road = Station.create!(name:"Tottenham Court Road")
+tottenham_hale = Station.create!(name:"Tottenham Hale")
+totteridge_whetstone = Station.create!(name:"Totteridge & Whetstone")
+tower_hill = Station.create!(name:"Tower Hill")
+tufnell_park = Station.create!(name:"Tufnell Park")
+turnham_green = Station.create!(name:"Turnham Green")
+turnpike_lane = Station.create!(name:"Turnpike Lane")
+upminster = Station.create!(name:"Upminster")
+upminster_bridge = Station.create!(name:"Upminster Bridge")
+upney = Station.create!(name:"Upney")
+upton_park = Station.create!(name:"Upton Park")
+uxbridge = Station.create!(name:"Uxbridge")
+vauxhall = Station.create!(name:"Vauxhall")
+victoria = Station.create!(name:"Victoria")
+walthamstow_central = Station.create!(name:"Walthamstow Central")
+wanstead = Station.create!(name:"Wanstead")
+warren_street = Station.create!(name:"Warren Street")
+warwick_avenue = Station.create!(name:"Warwick Avenue")
+waterloo = Station.create!(name:"Waterloo")
+watford = Station.create!(name:"Watford")
+wembley_central = Station.create!(name:"Wembley Central")
+wembley_park = Station.create!(name:"Wembley Park")
+west_acton = Station.create!(name:"West Acton")
+west_brompton = Station.create!(name:"West Brompton")
+west_finchley = Station.create!(name:"West Finchley")
+west_ham = Station.create!(name:"West Ham")
+west_hampstead = Station.create!(name:"West Hampstead")
+west_harrow = Station.create!(name:"West Harrow")
+west_kensington = Station.create!(name:"West Kensington")
+west_ruislip = Station.create!(name:"West Ruislip")
+westbourne_park = Station.create!(name:"Westbourne Park")
+westminster = Station.create!(name:"Westminster")
+white_city = Station.create!(name:"White City")
+whitechapel = Station.create!(name:"Whitechapel")
+willesden_green = Station.create!(name:"Willesden Green")
+willesden_junction = Station.create!(name:"Willesden Junction")
+wimbledon = Station.create!(name:"Wimbledon")
+wimbledon_park = Station.create!(name:"Wimbledon Park")
+wood_green = Station.create!(name:"Wood Green")
+wood_lane = Station.create!(name:"Wood Lane")
+woodford = Station.create!(name:"Woodford")
+woodside_park = Station.create!(name:"Woodside Park")
 
 post1.stations = [bank]
 post2.stations = [holborn]
@@ -431,17 +423,17 @@ post7.stations = [aldgate]
 post8.stations = [covent_garden]
 post9.stations = [liverpool_street, tottenham_court_road]
 
-bakerloo_line = Line.create(name: "Bakerloo Line")
-central_line = Line.create(name: "Central Line")
-circle_line = Line.create(name: "Circle Line")
-district_line = Line.create(name: "District")
-hammersmith_city_line = Line.create(name: "Hammersmith & City Line")
-jubilee_line = Line.create(name: "Jubilee Line")
-metropolitan_line = Line.create(name: "Metropolitan Line")
-northern_line = Line.create(name: "Northern Line")
-piccadilly_line = Line.create(name: "Central Line")
-victoria_line = Line.create(name: "Victoria Line")
-waterloo_city_line = Line.create(name: "Waterloo & City Line")
+bakerloo_line = Line.create!(name: "Bakerloo Line")
+central_line = Line.create!(name: "Central Line")
+circle_line = Line.create!(name: "Circle Line")
+district_line = Line.create!(name: "District")
+hammersmith_city_line = Line.create!(name: "Hammersmith & City Line")
+jubilee_line = Line.create!(name: "Jubilee Line")
+metropolitan_line = Line.create!(name: "Metropolitan Line")
+northern_line = Line.create!(name: "Northern Line")
+piccadilly_line = Line.create!(name: "Central Line")
+victoria_line = Line.create!(name: "Victoria Line")
+waterloo_city_line = Line.create!(name: "Waterloo & City Line")
 
 
 bakerloo_line.stations = [
