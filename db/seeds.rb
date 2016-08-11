@@ -67,7 +67,7 @@ user5 = User.create(
   email: "chanse.campbell@generalassemb.ly",
   password: "password",
   password_confirmation: "password",
-  profile_picture: File.open(File.join(Rails.root, '/db/imageschanse.png')))
+  profile_picture: File.open(File.join(Rails.root, '/db/images/chanse.png')))
 
 user6 = User.create(
   username: "mickyginger",
