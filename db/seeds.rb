@@ -37,7 +37,7 @@ user2 = User.create(
   bio: "I'm looking for a rich husband. Social media enthusiast. Prone to fits of apathy. Tv practitioner. Professional zombie ninja.",
   password: "password",
   password_confirmation: "password",
-  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/2/cody.jpg')))
+  profile_picture: File.open(File.join(Rails.root, '/db/images/cody.jpg')))
 
 user3 = User.create(
   username: "saltyolive",
@@ -47,7 +47,7 @@ user3 = User.create(
   bio: "Professional food junkie. Social media practitioner. Hipster-friendly web scholar. Infuriatingly humble pop culture aficionado.",
   password: "password",
   password_confirmation: "password",
-  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/3/Kat1.jpeg')))
+  profile_picture: File.open(File.join(Rails.root, '/db/images/Kat1.jpeg')))
 
 user4 = User.create(
   username: "raneG",
@@ -57,7 +57,7 @@ user4 = User.create(
   email: "rane.gowan@generalassemb.ly",
   password: "password",
   password_confirmation: "password",
-  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/4/rane.jpg')))
+  profile_picture: File.open(File.join(Rails.root, '/db/images/rane.jpg')))
 
 user5 = User.create(
   username: "chansec",
@@ -67,7 +67,7 @@ user5 = User.create(
   email: "chanse.campbell@generalassemb.ly",
   password: "password",
   password_confirmation: "password",
-  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/5/chanse.png')))
+  profile_picture: File.open(File.join(Rails.root, '/db/imageschanse.png')))
 
 user6 = User.create(
   username: "mickyginger",
@@ -77,7 +77,7 @@ user6 = User.create(
   email: "mike.hayden@generalassemb.ly",
   password: "password",
   password_confirmation: "password",
-  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/6/mike.jpg')))
+  profile_picture: File.open(File.join(Rails.root, '/db/images/mike.jpg')))
 
 user7 = User.create(
   username: "lulu69",
@@ -87,7 +87,7 @@ user7 = User.create(
   email: "leanne.carter@something.com",
   password: "password",
   password_confirmation: "password",
-  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/7/lua.jpeg')))
+  profile_picture: File.open(File.join(Rails.root, '/db/images/lua.jpeg')))
 
 user8 = User.create(
   username: "UncleChris",
@@ -97,7 +97,7 @@ user8 = User.create(
   email: "tris.revill@something.com",
   password: "password",
   password_confirmation: "password",
-  profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/8/tris.jpg')))
+  profile_picture: File.open(File.join(Rails.root, '/db/images/tris.jpg')))
 
 post1 = Post.create(
   title: "Greek guy who helped me out of Bank tube",     
