@@ -23,6 +23,14 @@ $(document).on('turbolinks:load', function() {
 
   console.log("js loaded");
 
+  $('.container').css('display', 'none');
+  $('.container').fadeIn(1200);       
+  $('.link').click(function() {      
+    event.preventDefault();          
+    $('.container').fadeOut(100, newpage);      
+  });      
+
+
   function truncation(string) {
       $chars=(string.text().split(""));
       
@@ -30,7 +38,7 @@ $(document).on('turbolinks:load', function() {
         return ($chars.join(""));
       }
       else {
-        $str = ($chars.slice(0,170).join(""));
+        $str = ($chars.slice(0,179).join(""));
         return ($str+"...");
       }
     }

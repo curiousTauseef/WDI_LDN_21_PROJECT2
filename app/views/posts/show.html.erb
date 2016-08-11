@@ -1,3 +1,5 @@
+
+<div class= "panel panel-default panel-body">
 <div class="media-left">
     <% if @post.user.profile_picture.thumb.url %>
       <%= link_to (image_tag @post.user.profile_picture.thumb.url), "/users/#{@post.user_id}" %>
@@ -23,4 +25,5 @@
   <% elsif user_signed_in? == false %>
     <%= link_to "Sign in to connect", user_session_path, class: "btn btn-primary" %>
   <% end %>
+</div>
 </div>

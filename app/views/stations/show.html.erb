@@ -1,21 +1,23 @@
-<h2><%= @station.name %></h2>
+<div class= "panel panel-default panel-body">
+  <h2><%= @station.name %></h2>
 
-<% @station.posts.each do |p| %>
-  <div class="media">
-    <div class="media-left">
-      <% profile_pic_url = p.user.profile_picture.thumb.url.present? ? p.user.profile_picture.thumb.url : "http://www.fillmurray.com/50/50" %>
-      <%= link_to (image_tag profile_pic_url), "/users/#{p.user_id}" %></td>
+  <% @station.posts.each do |p| %>
+    <div class="media">
+      <div class="media-left">
+        <% profile_pic_url = p.user.profile_picture.thumb.url.present? ? p.user.profile_picture.thumb.url : "http://www.fillmurray.com/50/50" %>
+        <%= link_to (image_tag profile_pic_url), "/users/#{p.user_id}" %></td>
+      </div>
+
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to p.title, "/posts/#{p.id}" %></h4>
+        <p><%= p.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
+      </div>
     </div>
+  <% end %>
 
-    <div class="media-body">
-      <h4 class="media-heading"><%= link_to p.title, "/posts/#{p.id}" %></h4>
-      <p><%= p.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
-    </div>
-  </div>
-<% end %>
-
-<% if user_signed_in? && current_user.admin? %>
-  <%= link_to 'Edit', edit_station_path(@station), class: "btn btn-primary" %></td>
-  <%= link_to 'Destroy', @station, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-<% end %>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_station_path(@station), class: "btn btn-primary" %></td>
+    <%= link_to 'Destroy', @station, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+  <% end %>
+</div>
 

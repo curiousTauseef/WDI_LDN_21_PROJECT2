@@ -8,30 +8,28 @@
           <%= link_to line.name, "/lines/#{line.id}" %>   
         </h2>
 
-        <% line.posts.take(3).each do |p| %>
+        <% line.posts.take(2).each do |p| %>
 
           <div class="media">
-            <div class="media-left">
-
-              
+            
+            <div class="media-left">            
                 <% if p.user.profile_picture.thumb.url %>
                   <%= link_to (image_tag p.user.profile_picture.thumb.url), "/users/#{p.user_id}" %>
                 <% else %>
                   <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{p.user_id}" %>
                 <% end %>   
-            
             </div>
 
               <div class="media-body">
                 <h4 class="media-heading"><%= link_to p.title, "/posts/#{p.id}" %></h4>
                 <p><%= p.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
               </div>
-
-          
           </div>
         <% end %>
       </div>
-        <a href="#" class="btn btn-primary">View All</a> 
+        <% if line.posts.length > 2 %>
+          <%= link_to "View All", "/lines/#{line.id}", class: "btn btn-primary postBtn"%>
+        <% end %>
     </div>
   </div>
 <% end %>

@@ -84,7 +84,7 @@ user7 = User.create(
   first_name: "Leanne",
   last_name: "Carter",
   bio: "Love cake. Falls down a lot. Wannabe writer. Coffee fan. Future teen idol. General travel ninja.",
-  email: "lua.cooper@something.com",
+  email: "leanne.carter@something.com",
   password: "password",
   password_confirmation: "password",
   profile_picture: File.open(File.join(Rails.root, '/public/uploads/user/profile_picture/7/lua.jpeg')))

@@ -8,7 +8,7 @@
             <%= link_to station.name, "/stations/#{station.id}" %>   
           </h2>
 
-          <% station.posts.each do |p| %>
+          <% station.posts.take(2).each do |p| %>
 
             <div class="media">
               <div class="media-left">
@@ -26,6 +26,9 @@
             </div>
           <% end %> 
 
+          <% if station.posts.length > 2 %>
+            <%= link_to "View all", "/stations/#{station.id}", class: "btn btn-primary postBtn" %>
+          <% end %> 
       </div>
     </div>
   </div>
