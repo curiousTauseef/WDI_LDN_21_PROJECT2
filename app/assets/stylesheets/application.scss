@@ -61,9 +61,11 @@ h1, h2, h3, h4 {
 .shader {
   width: 100%;
   height: 100vh;
-  
   position: absolute;
   background: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  background: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  background: -moz-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
   z-index: 1;
 }
 
@@ -95,7 +97,7 @@ h1, h2, h3, h4 {
   .love {
     color: #F8C213;
     font-weight: 900;
-    font-size: 5em;
+    font-size: 6em;
     animation-duration: 3s;
     display: inline-block;
   }
@@ -103,7 +105,7 @@ h1, h2, h3, h4 {
   .underground {
     color: #FBFBFF;
     font-weight: 100;
-    font-size: 5em;
+    font-size: 6em;
     animation-duration: 3s;
     display:inline-block;
   }
@@ -111,10 +113,11 @@ h1, h2, h3, h4 {
   .slogan {
     font-family: 'Raleway', sans-serif; 
     color: #757575;
-    font-size: 1.8em;
+    font-size: 2em;
     font-weight: 100;
     animation-duration: 2s;
     animation-delay: 3s;
+    text-shadow: 2px 2px 2px #333;
   }
 
   .homeNav {
@@ -128,7 +131,7 @@ h1, h2, h3, h4 {
     }
 
     .homeLinks {
-      font-size: 1.5em;
+      font-size: 1.7em;
       animation-duration: 2s;
       animation-delay: 3s;
       color: #E4572E;
@@ -142,7 +145,6 @@ h1, h2, h3, h4 {
 
 .sparkImg {
   width: 100%;
-  // margin: 20px 0px;
 }
 
 .sparkImg img {
@@ -217,6 +219,9 @@ div.media-left img, div.media-right img  {
 
 .panel-default {
   background: -webkit-linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.6));
+  background: -o-linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.6));
+  background: -moz-linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.6));
+  background: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.6));
   border-radius: 0px;
 }
 
@@ -265,6 +270,9 @@ textarea {
 
 .form-control, .select2-container--default .select2-selection--multiple {
   background-color: rgba(255, 255, 255, 0.0) !important;
+  background-color: -webkit-linear-gradient(rgba(255, 255, 255, 0.0)) !important;
+  background-color: -o-linear-gradient(rgba(255, 255, 255, 0.0)) !important;
+  background-color: -moz-linear-gradient(rgba(255, 255, 255, 0.0)) !important;
   color: white;
 
 }
@@ -351,19 +359,6 @@ div#error_explanation {
 
     .sparkImg img {
       width: 100%;
-    }
-
-    .slogan {
-      font-family: 'Raleway', sans-serif; 
-      color: #757575;
-      font-size: 2.5em;
-      font-weight: 100;
-      animation-duration: 2s;
-      animation-delay: 3s;
-    }
-
-    .homeLinks {
-      font-size: 2em;
     }
 
 }
