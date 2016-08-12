@@ -238,8 +238,8 @@ div.media-left img, div.media-right img  {
   border: 10px solid #F8C213;
   margin-top: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  max-width: 300px;
-  max-height: 300px;
+  width: 300px;
+  height: 300px;
 }
 
 /*MESSAGES INDEX*/
@@ -272,8 +272,8 @@ textarea {
 
 .form-control, .select2-container--default .select2-selection--multiple {
   background-color: rgba(255, 255, 255, 0.0) !important;
-  background-color: -webkit-linear-gradient(rgba(255, 255, 255, 0.0)) !important
-  background-color: -o-linear-gradient(rgba(255, 255, 255, 0.0)) !important
+  background-color: -webkit-linear-gradient(rgba(255, 255, 255, 0.0)) !important;
+  background-color: -o-linear-gradient(rgba(255, 255, 255, 0.0)) !important;
   background-color: -moz-linear-gradient(rgba(255, 255, 255, 0.0)) !important;
   color: white;
 
