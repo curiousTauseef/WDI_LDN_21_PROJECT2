@@ -3,7 +3,7 @@ module AdminAuthenticationHelper
   def is_admin?
     unless user_signed_in? && current_user.admin?
       flash[:danger] = "This area is restricted for admins only."
-      redirect_to root_path
+      redirect_to posts_path
     end    
   end
 
