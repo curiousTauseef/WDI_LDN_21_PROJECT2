@@ -6,12 +6,9 @@
     <div class="media">
       <div class="media-left">
 
+          <% profile_pic_url = p.user.profile_picture.thumb.url.present? ? p.user.profile_picture.thumb.url : "http://www.fillmurray.com/50/50" %>
         
-          <% if p.user.profile_picture.thumb.url %>
-            <%= link_to (image_tag p.user.profile_picture.thumb.url), "/users/#{p.user_id}" %>
-          <% else %>
-            <%= link_to (image_tag "http://www.fillmurray.com/50/50"), "/users/#{p.user_id}" %>
-          <% end %>   
+          <%= link_to (image_tag profile_pic_url), "/users/#{p.user_id}" %>
       
       </div>
 
@@ -19,7 +16,6 @@
           <h4 class="media-heading"><%= link_to p.title, "/posts/#{p.id}" %></h4>
           <p><%= p.date_time.strftime("%a, %d %b %Y %l:%M %p") %></p>
         </div>
-
    
     </div>
 
